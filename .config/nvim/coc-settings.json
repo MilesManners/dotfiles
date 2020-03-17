@@ -1,0 +1,7 @@
+{
+  "suggest.autoTrigger": "none",
+  "codeLens.enable": true,
+  "diagnostic.virtualText": true,
+  "eslint.autoFixOnSave": true,
+  "yank.highlight.enable": true
+}
