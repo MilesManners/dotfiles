@@ -34,7 +34,23 @@ let g:rainbow_active=1
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
 " CoC
-g:coc_global_extensions='coc-actions coc-css coc-git coc-highlight coc-html coc-json coc-lists coc-tsserver coc-vetur coc-vimlsp coc-yank'
+let g:coc_global_extensions=[
+\  'coc-actions',
+\  'coc-css',
+\  'coc-eslint',
+\  'coc-git',
+\  'coc-highlight',
+\  'coc-html',
+\  'coc-json', 
+\  'coc-lists',
+\  'coc-pairs',
+\  'coc-sh',
+\  'coc-tsserver',
+\  'coc-vetur',
+\  'coc-vimlsp',
+\  'coc-yaml',
+\  'coc-yank'
+\]
 
 function! s:cocActionsOpenFromSelected(type) abort
   execute 'CocCommand actions.open ' . a:type
