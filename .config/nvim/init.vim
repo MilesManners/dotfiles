@@ -15,7 +15,12 @@ function EnsureDirectory(dir)
 endfunction
 
 " Directory of config files
-let g:config_dir=EnsureDirectory($XDG_CONFIG_HOME.'/nvim/')
+" Use XDG_CONFIG_HOME if possible, otherwise default to HOME/.config
+if empty($XDG_CONFIG_HOME)
+  let g:config_dir=EnsureDirectory($HOME.'/.config/nvim/')
+else
+  let g:config_dir=EnsureDirectory($XDG_CONFIG_HOME.'/nvim/')
+endif
 
 " Directory of plugins
 let g:plugin_dir=EnsureDirectory($HOME.'/.cache/dein')
