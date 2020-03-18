@@ -4,6 +4,9 @@ if &compatible
   set nocompatible
 endif
 
+" Change <leader> to <Space>
+let mapleader="\<Space>"
+
 function EnsureDirectory(dir)
   if (!isdirectory(expand(a:dir)))
     call mkdir(a:dir, 'p')

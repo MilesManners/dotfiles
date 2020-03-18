@@ -5,9 +5,18 @@ if has('termguicolors')
   set termguicolors
 endif
 
+" Set ttyfast
+if has ('ttyfast')
+  set ttyfast
+endif
+
 " Preview substitution
 set is
 set inc=nosplit
+
+" Ignore search case unless capital letters are used
+set ignorecase
+set smartcase
 
 " Hide mode in statusline
 set noshowmode

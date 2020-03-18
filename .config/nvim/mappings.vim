@@ -1,10 +1,7 @@
-" Change <leader> to <Space>
-let mapleader="\<Space>"
-
 " Open netrw
 nnoremap <silent> <leader>e  :Ex<CR>
-" Reload vim config
-nnoremap <silent> <leader>so :so ~/.vimrc<CR>
+" Reload neovim config
+nnoremap <silent><expr> <leader>so ':so '.g:config_dir.'init.vim<CR>'
 
 " Escape from terminal
 tnoremap <silent> <Esc> <C-\><C-n>
