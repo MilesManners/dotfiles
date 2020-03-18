@@ -2,7 +2,7 @@
 
 These are my dotfiles for my workstation. They are setup as a bare repository.
 
-For more information on a setup like this, check https://www.atlassian.com/git/tutorials/dotfiles or one of the many similar articles.
+For more information on a setup like this, check [the atlassian tutorial](https://www.atlassian.com/git/tutorials/dotfiles) or one of the many similar articles.
 
 [neovim](https://neovim.io/) - [.config/nvim](.config/nvim)
 - [Dein](https://github.com/Shougo/dein.vim) plugin manager - [den.vim](.config/nvim/dein.vim)
