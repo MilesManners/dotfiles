@@ -4,7 +4,9 @@
 call dein#add('sheerun/vim-polyglot')
 
 " Completion
-call dein#add('neoclide/coc.nvim', { 'merged':0, 'rev': 'release' })
+if has('nvim')
+  call dein#add('neoclide/coc.nvim', { 'merged':0, 'rev': 'release' })
+endif
 
 " Code Display
 call dein#add('frazrepo/vim-rainbow')
