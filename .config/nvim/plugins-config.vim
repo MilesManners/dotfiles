@@ -1,5 +1,7 @@
 " Color scheme
-colo moonlight
+if has('nvim')
+  colo moonlight
+endif
 
 " Lightline config
 let g:lightline = {
@@ -41,6 +43,7 @@ let g:coc_global_extensions=[
 \  'coc-git',
 \  'coc-highlight',
 \  'coc-html',
+\  'coc-import-cost',
 \  'coc-json', 
 \  'coc-lists',
 \  'coc-pairs',
@@ -51,6 +54,10 @@ let g:coc_global_extensions=[
 \  'coc-yaml',
 \  'coc-yank'
 \]
+
+if dein#tap('coc.nvim')
+  set signcolumn=yes
+endif
 
 function! s:cocActionsOpenFromSelected(type) abort
   execute 'CocCommand actions.open ' . a:type
