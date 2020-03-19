@@ -1,25 +1,39 @@
 " Open netrw
-nnoremap <silent> <leader>e  :Ex<CR>
+nmap <silent> <leader>e :Ex<CR>
 " Reload neovim config
-nnoremap <silent><expr> <leader>so ':so '.g:config_dir.'init.vim<CR>'
+nmap <silent><expr> <leader>so ':so '.g:config_dir.'init.vim<CR>'
 
 " Escape from terminal
-tnoremap <silent> <Esc> <C-\><C-n>
+tmap <Esc> <C-\><C-n>
 
 " Window movement
-nnoremap <silent> <A-h> :winc h<CR>
-nnoremap <silent> <A-j> :winc j<CR>
-nnoremap <silent> <A-k> :winc k<CR>
-nnoremap <silent> <A-l> :winc l<CR>
-nnoremap <silent> <A-w> :winc w<CR>
-nnoremap <silent> <A-p> :winc p<CR>
+nmap <A-h> <C-w>h
+nmap <A-j> <C-w>j
+nmap <A-k> <C-w>k
+nmap <A-l> <C-w>l
+nmap <A-w> <C-w>w
+nmap <A-p> <C-w>p
+
+tmap <A-h> <Esc><C-w>h
+tmap <A-j> <Esc><C-w>j
+tmap <A-k> <Esc><C-w>k
+tmap <A-l> <Esc><C-w>l
+tmap <A-w> <Esc><C-w>w
+tmap <A-p> <Esc><C-w>p
 
 " Window resize
-nnoremap <silent> <A-_> :winc _<CR>
+nmap <A-=> <C-w>=
+
+tmap <A-=> <Esc><C-w>=
 
 " Window splits
-nnoremap <silent> <A-s> :winc s<CR>
-nnoremap <silent> <A-v> :winc v<CR>
+nmap <A-s> <C-w>s
+nmap <A-v> <C-w>v
+
+tmap <A-s> <Esc><C-w>s
+tmap <A-v> <Esc><C-w>v
 
 " Window close
-nnoremap <silent> <A-c> :winc c<CR>
+nmap <A-c> <C-w>c
+
+tmap <A-c> <C-w>c
