@@ -19,20 +19,23 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 # Set up Node Version Manager
-source /usr/share/nvm/init-nvm.sh
+if [ -d "/usr/share/nvm" ]; then
+  source /usr/share/nvm/init-nvm.sh
 
-# Automatically nvm use when folder has an .nvmrc
-autoload -U add-zsh-hook
-load-nvmrc() {
-  if [[ -f .nvmrc && -r .nvmrc ]]; then
-    nvm use
-  elif [[ $(nvm version) != $(nvm version default)  ]]; then
-    echo "Reverting to nvm default version"
-    nvm use default
-  fi
-}
-add-zsh-hook chpwd load-nvmrc
-load-nvmrc
+  # Automatically nvm use when folder has an .nvmrc
+  autoload -U add-zsh-hook
+  load-nvmrc() {
+    if [[ -f .nvmrc && -r .nvmrc ]]; then
+      nvm use
+    elif [[ $(nvm version) != $(nvm version default)  ]]; then
+      echo "Reverting to nvm default version"
+      nvm use default
+    fi
+  }
+
+  add-zsh-hook chpwd load-nvmrc
+  load-nvmrc
+fi
 
 # Add Yarn to path
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
