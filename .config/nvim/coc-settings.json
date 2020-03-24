@@ -1,7 +1,12 @@
 {
   "suggest.autoTrigger": "none",
+
   "codeLens.enable": true,
+
   "diagnostic.virtualText": true,
+
   "eslint.autoFixOnSave": true,
-  "yank.highlight.enable": true
+
+  "yank.highlight.enable": true,
+  "yank.highlight.duration": 200
 }
