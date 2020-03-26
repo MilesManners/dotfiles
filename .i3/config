@@ -11,6 +11,8 @@ set $mod Mod4
 default_border pixel 3
 default_floating_border normal
 
+border_radius 3
+
 # change borders
 bindsym $mod+u border none
 bindsym $mod+y border pixel 3
