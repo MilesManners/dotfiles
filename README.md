@@ -1,5 +1,3 @@
-# MilesManners/dotfiles
-
 ![screenshot](screenshot.png)
 
 These are my dotfiles for my workstation. They are setup as a bare repository.
@@ -26,14 +24,14 @@ For more information on a setup like this, check [the atlassian tutorial](https:
 - I use [Font Awesome](https://fontawesome.com/) for icons
   - Requires access to pro icons to use all the icons I use, but can easily be changed
 
-### [Termite](https://github.com/thestinger/termite) terminal - [.config/termite]
+### [Termite](https://github.com/thestinger/termite) terminal - [.config/termite](.config/termite)
 
 ### Personal Theme - [.themes/oomox-arc-red](.themes/oomox-arc-red) [.icons/oomox-arc-red](.icons/oomox-arc-red)
 - [Wallpaper](https://i.imgur.com/19oujdw.png) is the Risk of Rain end cutscene
 - Made with [Oomox](https://github.com/themix-project/oomox)
 - Some theming is embeded in other files
 
-## Installation
+# Installation
 The directory `$HOME/dotfiles` is used in this example, but any directory can be used.
 As is the same for the `dotfiles` command.
 ```bash
