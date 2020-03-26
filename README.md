@@ -28,6 +28,7 @@ For more information on a setup like this, check [the atlassian tutorial](https:
 
 Personal Theme - [.themes/oomox-arc-red](.themes/oomox-arc-red) [.icons/oomox-arc-red](.icons/oomox-arc-red)
 - [Wallpaper](https://i.imgur.com/19oujdw.png) is the Risk of Rain end cutscene
+- Made with [Oomox](https://github.com/themix-project/oomox)
 - Some theming is embeded in other files
 
 ### Installation
