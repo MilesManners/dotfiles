@@ -71,8 +71,7 @@ if dein#tap('coc.nvim')
   xnoremap <silent> <leader>a :<C-u>execute 'CocCommand actions.open ' . visualmode()<CR>
   nnoremap <silent> <leader>a :<C-u>set operatorfunc=<SID>cocActionsOpenFromSelected<CR>g@
 
-  nnoremap <silent> gd <Plug>(coc-definition)
-
+  " rename the current word in the cursor
   nnoremap <silent> <leader>rn <Plug>(coc-rename)
 
   inoremap <silent><expr> <TAB>   pumvisible() ? "\<C-n>" : coc#refresh()
@@ -112,9 +111,6 @@ if dein#tap('coc.nvim')
   nnoremap <silent> <leader>cR :<C-u>CocRestart<CR>
   " List errors
   nnoremap <silent> <leader>cl :<C-u>CocList locationlist<cr>
-
-  " rename the current word in the cursor
-  nnoremap <leader>cr  <Plug>(coc-rename)
 
   " format code
   nnoremap <leader>cf  <Plug>(coc-format-selected)
