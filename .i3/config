@@ -246,6 +246,9 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 # Theme colors
 #                       border  backgr. text    indic.   child_border
 client.focused          #BF4144 #BF4144 #FDF6E3 #FDF6E3
+client.focused_inactive #000000 #000000 #FDF6E3 #FDF6E3
+client.unfocused        #000000 #000000 #FDF6E3 #FDF6E3
+client.urgent           #000000 #000000 #FDF6E3 #FDF6E3
 
 #############################
 ### settings for i3-gaps: ###
