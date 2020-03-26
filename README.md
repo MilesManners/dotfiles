@@ -6,6 +6,7 @@ These are my dotfiles for my workstation. They are setup as a bare repository.
 
 For more information on a setup like this, check [the atlassian tutorial](https://www.atlassian.com/git/tutorials/dotfiles) or one of the many similar articles.
 
+![neovim screenshot](neovim.png)
 [neovim](https://neovim.io/) editor - [.config/nvim](.config/nvim)
 - [Dein](https://github.com/Shougo/dein.vim) plugin manager - [den.vim](.config/nvim/dein.vim)
 - [CoC](https://github.com/neoclide/coc.nvim) - [coc-settings.json](.config/nvim/coc-settings.json)
@@ -22,10 +23,12 @@ For more information on a setup like this, check [the atlassian tutorial](https:
 - More specifically, the [i3-gaps-rounded](https://github.com/resloved/i3) fork
 - This config is highly specific to my setup at this point
 
+![Polybar screenshot](polybar.png)
 [Polybar](https://github.com/polybar/polybar) status bar - [.config/polybar](.config/polybar)
 - I use [Font Awesome](https://fontawesome.com/) for icons
   - Requires access to pro icons to use all the icons I use, but can easily be changed
 
+![Termite Screenshot](termite.png)
 [Termite](https://github.com/thestinger/termite) terminal - [.config/termite]
 
 Personal Theme - [.themes/oomox-arc-red](.themes/oomox-arc-red) [.icons/oomox-arc-red](.icons/oomox-arc-red)
