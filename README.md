@@ -1,5 +1,7 @@
 # MilesManners/dotfiles
 
+![screenshot](screenshot.png)
+
 These are my dotfiles for my workstation. They are setup as a bare repository.
 
 For more information on a setup like this, check [the atlassian tutorial](https://www.atlassian.com/git/tutorials/dotfiles) or one of the many similar articles.
