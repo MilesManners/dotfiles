@@ -90,8 +90,8 @@ fi
 alias dotfiles='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 
 # Show system info with Neofetch
-if [ -x "$(command -v neofetch)"]
+if [ -x "$(command -v neofetch)"]; then
   neofetch
-elif [ -x "$(command -v screenfetch)"]
+elif [ -x "$(command -v screenfetch)"]; then
   screenfetch
 fi
