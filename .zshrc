@@ -13,6 +13,7 @@ export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_CUSTOM=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}
 
+# Theme
 if [ ! -d "$ZSH_CUSTOM/themes/spaceship-prompt" ]; then
   echo "Spaceship Prompt not installed"
   echo "----- Downloading Spaceship Prompt -----"
@@ -23,20 +24,14 @@ if [ ! -d "$ZSH_CUSTOM/themes/spaceship-prompt" ]; then
   echo "*=====* Completed *=====*"
 fi
 
-# Theme
 ZSH_THEME="spaceship"
 
 # Plugins
-plugins=(
-  git
-)
-
 if [ ! -d "$ZSH_CUSTOM/plugins/fast-syntax-highlighting" ]; then
   echo "Fast Syntax Highlighting not installed"
   echo "----- Downloading Fast Syntax Highlighting -----"
 
   git clone https://github.com/zdharma/fast-syntax-highlighting $ZSH_CUSTOM/plugins/fast-syntax-highlighting
-  plugins+=(fast-syntax-highlighting)
 
   echo "*=====* Completed *=====*"
 fi
@@ -46,10 +41,15 @@ if [ ! -d "$ZSH_CUSTOM/plugins/zsh-autosuggestions" ]; then
   echo "----- Downloading Autosuggestions -----"
 
   git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
-  plugins+=(zsh-autosuggestions)
 
   echo "*=====* Completed *=====*"
 fi
+
+plugins=(
+  git
+  fast-syntax-highlighting
+  zsh-autosuggestions
+)
 
 source $ZSH/oh-my-zsh.sh
 
