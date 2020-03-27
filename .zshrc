@@ -1,20 +1,35 @@
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+  # sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+  git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
+fi
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+
+ZSH_CUSTOM=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}
+
+if [ ! -d "$ZSH_CUSTOM/themes/spaceship" ]; then
+  git clone https://github.com/denysdovhan/spaceship-prompt.git $ZSH_CUSTOM/themes/spaceship-prompt
+  ln -s $ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme $ZSH_CUSTOM/themes/spaceship.zsh-theme
+fi
 
 # Theme
 ZSH_THEME="spaceship"
 
-# Spaceship Customizations
-SPACESHIP_CHAR_SYMBOL="> "
-SPACESHIP_JOBS_SYMBOL="+ "
-SPACESHIP_EXIT_CODE_SYMBOL="X "
-
 # Plugins
 plugins=(
   git
-  fast-syntax-highlighting
-  zsh-autosuggestions
 )
+
+if [ ! -d "$ZSH_CUSTOM/plugins/fast-syntax-highlighting" ]; then
+  git clone https://github.com/zdharma/fast-syntax-highlighting $ZSH_CUSTOM/plugins/fast-syntax-highlighting
+  plugins+=(fast-syntax-highlighting)
+fi
+
+if [ ! -d "$ZSH_CUSTOM/plugins/zsh-autosuggestions" ]; then
+  git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
+  plugins+=(zsh-autosuggestions)
+fi
 
 source $ZSH/oh-my-zsh.sh
 
