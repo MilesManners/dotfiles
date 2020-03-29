@@ -224,6 +224,14 @@ mode "resize" {
   # exit resize mode: Escape or $mod+r again
   bindsym Escape mode "default"
   bindsym $mod+r mode "default"
+  bindsym $mod+h mode "default"; focus left
+  bindsym $mod+j mode "default"; focus down
+  bindsym $mod+k mode "default"; focus up
+  bindsym $mod+l mode "default"; focus right
+  bindsym $mod+shift+h mode "default"; move left
+  bindsym $mod+shift+j mode "default"; move down
+  bindsym $mod+shift+k mode "default"; move up
+  bindsym $mod+shift+l mode "default"; move right
 }
 
 # Lock screen
