@@ -16,7 +16,7 @@ For more information on a setup like this, check [the atlassian tutorial](https:
 - [Oh My Zsh](https://ohmyz.sh/) configuration framework
 - [Spaceship](https://denysdovhan.com/spaceship-prompt/) theme
 
-### [i3](https://i3wm.org/) window manager - [.i3/config](.i3)
+### [i3](https://i3wm.org/) window manager - [.config/i3](.config/i3)
 - More specifically, the [i3-gaps-rounded](https://github.com/resloved/i3) fork
 - This config is highly specific to my setup at this point
 
