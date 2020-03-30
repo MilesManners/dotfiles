@@ -12,7 +12,7 @@ endif
 
 " Preview substitution
 set is
-set inc=nosplit
+set icm=nosplit
 
 " Ignore search case unless capital letters are used
 set ignorecase
