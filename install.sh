@@ -1,5 +1,7 @@
 #!/bin/bash
 
+[ -d "$HOME/dotfiles" ] && echo -e "Dotfiles already cloned" && exit
+
 echo -e "Checking for Git and Zsh\n"
 [ -x "$(command -v git)" ] && has_git=1
 [ -x "$(command -v zsh)" ] && has_zsh=1
@@ -22,14 +24,29 @@ else
   [ ! $has_zsh ] && (echo "Installing Zsh" && sudo ${manager} zsh || echo "Failed to install Zsh" && exit 1)
 fi
 
-[ -d "$HOME/dotfiles" ] && echo -e "Dotfiles already cloned" && exit
+# Get list of branches
+readarray -t branches <<< $(dotfiles ls-remote --heads origin | sed 's?.*refs/heads/??')
 
-echo -e "Cloning dotfiles\n"
+branch_menu () {
+  select branch; do
+    if [ 1 -le "$REPLY" ] && [ "$REPLY" -le $# ]; then
+      echo "Selected $branch branch"
+      break;
+    else
+      echo "Wrong selection: Select any number from 1-$#"
+    fi
+  done
+}
+
+PS3="Select branch: "
+branch_menu "${branches[@]}"
+
 # Clone dotfiles repo
+echo -e "Cloning dotfiles\n"
 git clone --bare https://github.com/MilesManners/dotfiles $HOME/dotfiles
 
 # Helper function for mapping dotfiles
-function dotfiles {
+dotfiles () {
   /usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME $@
 }
 
@@ -37,10 +54,10 @@ function dotfiles {
 dotfiles config status.showUntrackedFiles no
 
 echo -e "\nBacking up conflicting dotfiles to $HOME/dotfiles-backup\n";
-dotfiles ls-tree --full-tree -r --name-only HEAD | xargs -I% sh -c '[ -f % ] && mkdir -p $HOME/dotfiles-backup/% && mv % $HOME/dotfiles-backup/% && rm -f %'
+dotfiles ls-tree --full-tree -r --name-only HEAD | xargs -I% sh -c '[ -f % ] && mkdir -p $HOME/dotfiles-backup/% && cp % $HOME/dotfiles-backup/%'
 
 # Try to pull dotfiles
-if dotfiles checkout; then
+if dotfiles checkout -f; then
   echo -e "Checked out dotfiles\n";
 else
   echo -e "Failed to checkout dotfiles" && exit 1
