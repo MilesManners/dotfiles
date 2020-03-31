@@ -32,6 +32,16 @@ For more information on a setup like this, check [the atlassian tutorial](https:
 - Some theming is embeded in other files
 
 # Installation
+### Automatically
+A distro-agnostic installation script is available for easy installation of Git, Zsh, and this repo.
+You will be prompted to choose a branch from this repository.
+
+Please download the script locally and inspect it if you are concerned about safety.
+```bash
+curl -L https://repo.dmm.gg/dotfiles/install.sh | /bin/sh
+```
+
+### Manually
 The directory `$HOME/dotfiles` is used in this example, but any directory can be used.
 As is the same for the `dotfiles` command.
 ```bash
@@ -41,7 +51,36 @@ dotfiles config --local status.showUntrackedFiles no
 dotfiles checkout
 ```
 
-### Optionally add the `dotfiles` alias to your `.bashrc`, `.zshrc`, etc.
+Optionally add the `dotfiles` alias to your `.bashrc`, `.zshrc`, etc.
 ```bash
 echo "alias dotfiles='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'" >> $HOME/.zshrc
+```
+
+# Development
+**ALWAYS** rebase instead of merging.
+
+### Upstream
+Identify the commits you want to pull upstream. One easy way to do this is with `git log`.
+```bash
+dotfiles log --oneline
+```
+Create a new branch of the target upstream branch.
+Here, the naming convention for staging branches is `<downstream-branch>-upstream-<upstream-branch>`.
+The name is arbitrary, but it prevents conflicts and creates consitency in the repo.
+```bash
+dotfiles checkout -b <downstream-branch>-upstream-<upstream-branch> <upstream-branch>
+```
+Use `cherry-pick` to add the commits you identified in step one.
+```bash
+dotfiles cherry-pick <commits>
+```
+Push your holding branch upstream.
+```bash
+dotfiles push origin <downstream-branch>-upstream-<upstream-branch>
+```
+Now, create a pull request to the upstream branch
+
+Once the pull request is merged, the holding branch can be deleted.
+```bash
+dotfiles push origin :<downstream-branch>-upstream<upstream-branch>
 ```
