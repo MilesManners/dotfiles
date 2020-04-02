@@ -24,6 +24,15 @@ else
   [ ! $has_zsh ] && (echo "Installing Zsh" && sudo ${manager} zsh || echo "Failed to install Zsh" && exit 1)
 fi
 
+# Clone dotfiles repo
+echo -e "Cloning dotfiles\n"
+git clone --bare https://github.com/MilesManners/dotfiles $HOME/dotfiles
+
+# Helper function for mapping dotfiles
+dotfiles () {
+  /usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME $@
+}
+
 # Get list of branches
 readarray -t branches <<< $(dotfiles ls-remote --heads origin | sed 's?.*refs/heads/??')
 
@@ -40,15 +49,6 @@ branch_menu () {
 
 PS3="Select branch: "
 branch_menu "${branches[@]}"
-
-# Clone dotfiles repo
-echo -e "Cloning dotfiles\n"
-git clone --bare https://github.com/MilesManners/dotfiles $HOME/dotfiles
-
-# Helper function for mapping dotfiles
-dotfiles () {
-  /usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME $@
-}
 
 # Hide untracked files
 dotfiles config status.showUntrackedFiles no
