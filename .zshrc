@@ -92,6 +92,9 @@ fi
 
 # dotfiles 
 alias dotfiles='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
+compdef dotfiles='git'
+
+setopt complete_aliases
 
 # Show system info with Neofetch
 if [ -x "$(command -v neofetch)" ]; then
