@@ -86,6 +86,10 @@ if [ -d "$HOME/perl5" ]; then
   PERL_MM_OPT="INSTALL_BASE=$HOME/perl5"; export PERL_MM_OPT;
 fi
 
+if [ -x "$(command -v ruby)" ]; then
+  PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin"
+fi
+
 # dotfiles 
 alias dotfiles='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 
