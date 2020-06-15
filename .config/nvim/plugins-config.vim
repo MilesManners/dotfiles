@@ -40,12 +40,14 @@ if exists('dein#_progname')
         \  'coc-actions',
         \  'coc-css',
         \  'coc-eslint',
+        \  'coc-explorer',
         \  'coc-git',
         \  'coc-highlight',
         \  'coc-html',
         \  'coc-import-cost',
         \  'coc-json',
         \  'coc-lists',
+        \  'coc-marketplace',
         \  'coc-pairs',
         \  'coc-sh',
         \  'coc-tsserver',
@@ -120,5 +122,9 @@ if exists('dein#_progname')
     " run code actions
     vnoremap <leader>ca  <Plug>(coc-codeaction-selected)
     nnoremap <leader>ca  <Plug>(coc-codeaction-selected)
+
+    nnoremap <silent> <leader>e :CocCommand explorer --position=floating<CR>
+
+    inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
   endif
 endif

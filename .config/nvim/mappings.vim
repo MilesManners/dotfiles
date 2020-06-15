@@ -1,5 +1,3 @@
-" Open netrw
-nnoremap <silent> <leader>e :Ex<CR>
 " Reload neovim config
 nnoremap <silent><expr> <leader>so ':so '.g:config_dir.'init.vim<CR>'
 
