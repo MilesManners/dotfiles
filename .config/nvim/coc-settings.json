@@ -1,11 +1,14 @@
 {
-  "suggest.autoTrigger": "none",
-
   "codeLens.enable": true,
 
   "diagnostic.virtualText": true,
 
   "eslint.autoFixOnSave": true,
+
+  "list.maxPreviewHeight": 30,
+
+  "suggest.autoTrigger": "always",
+  "suggest.enablePreview": true,
 
   "yank.highlight.enable": true,
   "yank.highlight.duration": 200
