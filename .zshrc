@@ -120,6 +120,10 @@ function proxy_off() {
     echo -e "Proxy environment variable removed."
 }
 
+if [ -d "$HOME/.ssh" ]; then
+  eval "$(ssh-agent -s)" && ls $HOME/.ssh -1 --ignore='*.*' --ignore='known_hosts' | xargs -I % ssh-add $HOME/.ssh/%
+fi
+
 # Show system info with Neofetch
 if [ -x "$(command -v neofetch)" ]; then
   neofetch
