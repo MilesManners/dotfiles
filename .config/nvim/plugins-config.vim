@@ -63,6 +63,12 @@ if exists('dein#_progname')
     " Highlight occurences of word under cursor
     autocmd CursorHold * silent call CocActionAsync('highlight')
 
+    augroup mygroup
+      autocmd!
+      " Update signature help on jump placeholder
+      autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+    augroup end
+    
     " Make yank highlight a flash
     highlight HighlightedyankRegion guibg=#FFFF00 guifg=#000000
     let g:highlightedyank_highlight_duration=200
@@ -75,56 +81,60 @@ if exists('dein#_progname')
     nnoremap <silent> <leader>a :<C-u>set operatorfunc=<SID>cocActionsOpenFromSelected<CR>g@
 
     " rename the current word in the cursor
-    nnoremap <silent> <leader>rn <Plug>(coc-rename)
+    nmap <silent> <leader>rn <Plug>(coc-rename)
 
     inoremap <silent><expr> <TAB>   pumvisible() ? "\<C-n>" : coc#refresh()
     inoremap <silent><expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
     " GoTo code navigation.
-    nnoremap <silent> gd <Plug>(coc-definition)
-    nnoremap <silent> gy <Plug>(coc-type-definition)
-    nnoremap <silent> gi <Plug>(coc-implementation)
-    nnoremap <silent> gr <Plug>(coc-references)
+    nmap <silent> gd <Plug>(coc-definition)
+    nmap <silent> gy <Plug>(coc-type-definition)
+    nmap <silent> gi <Plug>(coc-implementation)
+    nmap <silent> gr <Plug>(coc-references)
 
     " Introduce function text object
     " NOTE: Requires 'textDocument.documentSymbol' support from the language server.
-    xnoremap if <Plug>(coc-funcobj-i)
-    xnoremap af <Plug>(coc-funcobj-a)
-    onoremap if <Plug>(coc-funcobj-i)
-    onoremap af <Plug>(coc-funcobj-a)
+    xmap <silent> if <Plug>(coc-funcobj-i)
+    xmap <silent> af <Plug>(coc-funcobj-a)
+    omap <silent> if <Plug>(coc-funcobj-i)
+    omap <silent> af <Plug>(coc-funcobj-a)
 
     " Use `[g` and `]g` to navigate diagnostics
-    nnoremap <silent> [g <Plug>(coc-diagnostic-prev)
-    nnoremap <silent> ]g <Plug>(coc-diagnostic-next)
+    nmap <silent> [g <Plug>(coc-diagnostic-prev)
+    nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
     " Mappings using CoCList:
     " Show all diagnostics.
-    nnoremap <silent> <leader>cd :<C-u>CocList diagnostics<cr>
+    nnoremap <silent> <leader>cd :<C-u>CocList diagnostics<CR>
     " Manage extensions.
-    nnoremap <silent> <leader>cx :<C-u>CocList extensions<cr>
+    nnoremap <silent> <leader>cx :<C-u>CocList extensions<CR>
     " Show commands.
-    nnoremap <silent> <leader>cc :<C-u>CocList commands<cr>
+    nnoremap <silent> <leader>cc :<C-u>CocList commands<CR>
     " Find symbol of current document.
-    nnoremap <silent> <leader>co :<C-u>CocList outline<cr>
+    nnoremap <silent> <leader>co :<C-u>CocList outline<CR>
     " Search workspace symbols.
-    nnoremap <silent> <leader>cs :<C-u>CocList -I symbols<cr>
+    nnoremap <silent> <leader>cs :<C-u>CocList -I symbols<CR>
     " Resume latest coc list.
     nnoremap <silent> <leader>cr :<C-u>CocListResume<CR>
     " Restart CoC
     nnoremap <silent> <leader>cR :<C-u>CocRestart<CR>
     " List errors
-    nnoremap <silent> <leader>cl :<C-u>CocList locationlist<cr>
+    nnoremap <silent> <leader>cl :<C-u>CocList locationlist<CR>
 
     " format code
-    nnoremap <leader>cf  <Plug>(coc-format-selected)
-    vnoremap <leader>cf  <Plug>(coc-format-selected)
+    nmap <silent> <leader>cf <Plug>(coc-format-selected)<CR>
+    vmap <silent> <leader>cf <Plug>(coc-format-selected)<CR>
 
     " run code actions
-    vnoremap <leader>ca  <Plug>(coc-codeaction-selected)
-    nnoremap <leader>ca  <Plug>(coc-codeaction-selected)
+    vmap <silent> <leader>ca <Plug>(coc-codeaction-selected)<CR>
+    nmap <silent> <leader>ca <Plug>(coc-codeaction-selected)<CR>
 
     nnoremap <silent> <leader>e :CocCommand explorer --position=floating<CR>
 
-    inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+    " coc-pairs newline fix
+    inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+    " show signature
+    nnoremap <silent> K :call CocActionAsync('showSignatureHelp')<CR>
   endif
 endif
