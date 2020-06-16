@@ -21,5 +21,10 @@ set smartcase
 " Hide mode in statusline
 set noshowmode
 
+" Update more often
+set updatetime=100
+" Save in the same amount of time
+set updatecount=8000
+
 " Not sure, need to research
 set shortmess+=c
