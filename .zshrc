@@ -53,25 +53,6 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-# Set up Node Version Manager
-if [ -d "/usr/share/nvm" ]; then
-  source /usr/share/nvm/init-nvm.sh
-
-  # Automatically nvm use when folder has an .nvmrc
-  autoload -U add-zsh-hook
-  load-nvmrc() {
-    if [[ -f .nvmrc && -r .nvmrc ]]; then
-      nvm use
-    elif [[ $(nvm version) != $(nvm version default)  ]]; then
-      echo "Reverting to nvm default version"
-      nvm use default
-    fi
-  }
-
-  add-zsh-hook chpwd load-nvmrc
-  load-nvmrc
-fi
-
 # Add Yarn to path
 if [ -d "$HOME/.yarn" ]; then
   export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
@@ -95,6 +76,49 @@ alias dotfiles='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 compdef dotfiles='git'
 
 setopt complete_aliases
+
+function proxy_on() {
+    export no_proxy="localhost,127.0.0.1,localaddress,.localdomain.com"
+    if (( $# > 0 )); then
+        valid=$(echo $@ | sed -n 's/\([0-9]\{1,3\}.\?\)\{4\}:\([0-9]\+\)/&/p')
+        if [[ $valid != $@ ]]; then
+            >&2 echo "Invalid address"
+            return 1
+        fi
+        local proxy=$1
+        export http_proxy="$proxy" \
+               https_proxy=$proxy \
+               ftp_proxy=$proxy \
+               rsync_proxy=$proxy \
+               all_proxy=$proxy \
+               HTTP_PROXY=$proxy \
+               HTTPS_PROXY=$proxy \
+               FTP_PROXY=$proxy \
+               RSYNC_PROXY=$proxy \
+               ALL_PROXY=$proxy
+        echo "Proxy environment variable set."
+        return 0
+    fi
+    echo -n "server: "; read server
+    echo -n "port: "; read port
+    local proxy=$server:$port
+    export http_proxy="$proxy" \
+           https_proxy=$proxy \
+           ftp_proxy=$proxy \
+           rsync_proxy=$proxy \
+           all_proxy=$proxy \
+           HTTP_PROXY=$proxy \
+           HTTPS_PROXY=$proxy \
+           FTP_PROXY=$proxy \
+           RSYNC_PROXY=$proxy \
+           ALL_PROXY=$proxy
+}
+
+function proxy_off() {
+    unset http_proxy https_proxy ftp_proxy rsync_proxy all_proxy \
+          HTTP_PROXY HTTPS_PROXY FTP_PROXY RSYNC_PROXY ALL_PROXY
+    echo -e "Proxy environment variable removed."
+}
 
 # Show system info with Neofetch
 if [ -x "$(command -v neofetch)" ]; then
