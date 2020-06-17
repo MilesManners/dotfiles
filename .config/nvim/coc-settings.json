@@ -5,6 +5,11 @@
 
   "eslint.autoFixOnSave": true,
 
+  "explorer.file.autoReveal": true,
+  "explorer.icon.enableNerdfont": true,
+  "explorer.openAction.strategy": "sourceWindow",
+  "explorer.quitOnOpen": true,
+
   "list.maxPreviewHeight": 30,
 
   "suggest.autoTrigger": "always",
