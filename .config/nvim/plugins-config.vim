@@ -1,6 +1,16 @@
 if exists('dein#_progname')
   " Color scheme
   if dein#tap('moonlight.vim')
+    function! MyHighlights()
+      hi CocFloating      guibg=#1B1B1B
+      hi CocHighlightText guibg=#111111 gui=bold
+    endfunction
+
+    augroup MyColors
+      autocmd!
+      au ColorScheme moonlight call MyHighlights()
+    augroup end
+
     colo moonlight
   endif
 
@@ -9,7 +19,7 @@ if exists('dein#_progname')
     let g:lightline = {
           \  'colorscheme': 'one',
           \  'active': {
-          \    'left': [['mode', 'paste'], ['git', 'diagnostic', 'cocstatus', 'filename', 'method', 'modified']],
+          \    'left': [['mode', 'paste'], ['git', 'diagnostic', 'filename', 'method', 'modified']],
           \    'right': [['filetype', 'fileencoding', 'lineinfo', 'percent'], ['blame']]
           \  },
           \  'inactive': {
@@ -17,7 +27,7 @@ if exists('dein#_progname')
           \    'right': [['lineinfo'], ['percent']]
           \  },
           \  'component_function': {
-          \    'blame': 'LightlineGitBlame',
+          \    'blame': 'LightlineGitBlame'
           \  },
           \}
 
@@ -27,7 +37,6 @@ if exists('dein#_progname')
       return winwidth(0) > 120 ? blame : ''
     endfunction
   endif
-
 
   " Enable rainbow brackets
   let g:rainbow_active=1
@@ -60,13 +69,17 @@ if exists('dein#_progname')
   if dein#tap('coc.nvim')
     set signcolumn=yes
 
-    " Highlight occurences of word under cursor
-    autocmd CursorHold * silent call CocActionAsync('highlight')
-
     augroup mygroup
       autocmd!
+
+      " Highlight occurences of word under cursor
+      autocmd CursorHold * silent call CocActionAsync('highlight')
+
+      " Setup formatexpr specified filetype(s)
+      autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+
       " Update signature help on jump placeholder
-      autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+      autocmd CursorHold * silent call CocActionAsync('showSignatureHelp')
     augroup end
     
     " Make yank highlight a flash
@@ -76,6 +89,9 @@ if exists('dein#_progname')
     function! s:cocActionsOpenFromSelected(type) abort
       execute 'CocCommand actions.open ' . a:type
     endfunction
+
+    " Add `:Format` command to format current buffer.
+    command! -nargs=0 Format :call CocAction('format')
 
     xnoremap <silent> <leader>a :<C-u>execute 'CocCommand actions.open ' . visualmode()<CR>
     nnoremap <silent> <leader>a :<C-u>set operatorfunc=<SID>cocActionsOpenFromSelected<CR>g@
@@ -134,7 +150,15 @@ if exists('dein#_progname')
     " coc-pairs newline fix
     inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
-    " show signature
-    nnoremap <silent> K :call CocActionAsync('showSignatureHelp')<CR>
+    function! s:show_documentation()
+      if (index(['vim','help'], &filetype) >= 0)
+        execute 'h '.expand('<cword>')
+      else
+        call CocAction('doHover')
+      endif
+    endfunction
+
+    " Use K to show documentation in preview window
+    nnoremap <silent> K :call <SID>show_documentation()<CR>
   endif
 endif
