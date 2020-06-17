@@ -10,7 +10,6 @@ endif
 
 " Code Display
 call dein#add('frazrepo/vim-rainbow')
-call dein#add('doums/darcula')
 call dein#add('lewis6991/moonlight.vim')
 
 " Integrations
