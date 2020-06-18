@@ -38,7 +38,7 @@ You will be prompted to choose a branch from this repository.
 
 Please download the script locally and inspect it if you are concerned about safety.
 ```bash
-curl -L https://raw.githack.com/MilesManners/dotfiles/master/install.sh | /bin/sh
+/bin/sh -c "$(curl -L https://raw.githack.com/MilesManners/dotfiles/master/install.sh)"
 ```
 
 ### Manually
