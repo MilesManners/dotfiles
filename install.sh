@@ -27,6 +27,7 @@ fi
 # Clone dotfiles repo
 echo -e "Cloning dotfiles\n"
 git clone --bare https://github.com/MilesManners/dotfiles $HOME/dotfiles
+echo
 
 # Helper function for mapping dotfiles
 dotfiles () {
@@ -39,7 +40,7 @@ readarray -t branches <<< $(dotfiles ls-remote --heads origin | sed 's?.*refs/he
 branch_menu () {
   select branch; do
     if [ 1 -le "$REPLY" ] && [ "$REPLY" -le $# ]; then
-      echo "Selected $branch branch"
+      echo "\nSelected $branch branch"
       break;
     else
       echo "Wrong selection: Select any number from 1-$#"
@@ -57,7 +58,7 @@ echo -e "\nBacking up conflicting dotfiles to $HOME/dotfiles-backup\n";
 dotfiles ls-tree --full-tree -r --name-only HEAD | xargs -I% sh -c '[ -f % ] && mkdir -p $HOME/dotfiles-backup/% && cp % $HOME/dotfiles-backup/%'
 
 # Try to pull dotfiles
-if dotfiles checkout -f; then
+if dotfiles checkout -f $branch; then
   echo -e "Checked out dotfiles\n";
 else
   echo -e "Failed to checkout dotfiles" && exit 1
