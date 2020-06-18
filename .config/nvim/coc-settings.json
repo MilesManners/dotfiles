@@ -10,7 +10,9 @@
   "explorer.file.autoReveal": true,
   "explorer.icon.enableNerdfont": true,
   "explorer.openAction.strategy": "sourceWindow",
-  "explorer.quitOnOpen": true,
+  "explorer.keyMappings": {
+    "v": "open:vsplit"
+  },
 
   "list.maxPreviewHeight": 30,
 
