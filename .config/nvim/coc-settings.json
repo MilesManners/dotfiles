@@ -1,4 +1,6 @@
 {
+  "coc.preferences.currentFunctionSymbolAutoUpdate": true,
+
   "codeLens.enable": true,
 
   "diagnostic.virtualText": true,
