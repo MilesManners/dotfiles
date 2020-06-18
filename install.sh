@@ -40,7 +40,7 @@ readarray -t branches <<< $(dotfiles ls-remote --heads origin | sed 's?.*refs/he
 branch_menu () {
   select branch; do
     if [ 1 -le "$REPLY" ] && [ "$REPLY" -le $# ]; then
-      echo "\nSelected $branch branch"
+      echo -e "\nSelected $branch branch\n"
       break;
     else
       echo "Wrong selection: Select any number from 1-$#"
@@ -59,7 +59,7 @@ dotfiles ls-tree --full-tree -r --name-only HEAD | xargs -I% sh -c '[ -f % ] && 
 
 # Try to pull dotfiles
 if dotfiles checkout -f $branch; then
-  echo -e "Checked out dotfiles\n";
+  echo -e "Checked out dotfiles";
 else
   echo -e "Failed to checkout dotfiles" && exit 1
 fi
