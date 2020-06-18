@@ -40,7 +40,7 @@ readarray -t branches <<< $(dotfiles ls-remote --heads origin | sed 's?.*refs/he
 branch_menu () {
   select branch; do
     if [ 1 -le "$REPLY" ] && [ "$REPLY" -le $# ]; then
-      echo -e "\nSelected $branch branch\n"
+      echo -e "\nSelected $branch branch"
       break;
     else
       echo "Wrong selection: Select any number from 1-$#"
