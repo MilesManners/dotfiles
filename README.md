@@ -16,6 +16,10 @@ For more information on a setup like this, check [the atlassian tutorial](https:
 - [Oh My Zsh](https://ohmyz.sh/) configuration framework
 - [Spaceship](https://denysdovhan.com/spaceship-prompt/) theme
 
+---
+
+## [arch-desktop branch](https://github.com/MilesManners/dotfiles/tree/arch-desktop)
+
 ### [i3](https://i3wm.org/) window manager - [.config/i3](.config/i3)
 - More specifically, the [i3-gaps-rounded](https://github.com/resloved/i3) fork
 - This config is highly specific to my setup at this point
@@ -30,6 +34,8 @@ For more information on a setup like this, check [the atlassian tutorial](https:
 - [Wallpaper](https://i.imgur.com/19oujdw.png) is the Risk of Rain end cutscene
 - Made with [Oomox](https://github.com/themix-project/oomox)
 - Some theming is embeded in other files
+
+---
 
 # Installation
 ### Automatically
