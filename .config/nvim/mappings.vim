@@ -12,12 +12,12 @@ nnoremap <A-l> <C-w>l
 nnoremap <A-w> <C-w>w
 nnoremap <A-p> <C-w>p
 
-tnoremap <A-h> <Esc><C-w>h
-tnoremap <A-j> <Esc><C-w>j
-tnoremap <A-k> <Esc><C-w>k
-tnoremap <A-l> <Esc><C-w>l
-tnoremap <A-w> <Esc><C-w>w
-tnoremap <A-p> <Esc><C-w>p
+tmap <A-h> <Esc><C-w>h
+tmap <A-j> <Esc><C-w>j
+tmap <A-k> <Esc><C-w>k
+tmap <A-l> <Esc><C-w>l
+tmap <A-w> <Esc><C-w>w
+tmap <A-p> <Esc><C-w>p
 
 " Window resize
 nnoremap <A-=> <C-w>=
