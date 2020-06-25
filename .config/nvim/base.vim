@@ -31,10 +31,19 @@ set noshowmode
 " Update more often
 set updatetime=300
 
+" Enable mouse
 set mouse=a
+
+" Highlight current line
+set cursorline
 
 " Don't pass messages to |ins-completion-menu|
 set shortmess+=c
+
+" Code folding by syntax
+set foldmethod=syntax
+" Start file with all folds open
+set foldlevelstart=99
 
 " Fixes for plop.js
 augroup plopfiles
