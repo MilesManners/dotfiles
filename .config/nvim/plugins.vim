@@ -7,6 +7,7 @@ call dein#add('sheerun/vim-polyglot')
 if has('nvim')
   call dein#add('neoclide/coc.nvim', { 'merged':0, 'rev': 'release' })
 endif
+call dein#add('mattn/emmet-vim')
 
 " Code Display
 call dein#add('frazrepo/vim-rainbow')
