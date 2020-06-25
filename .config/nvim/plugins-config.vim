@@ -2,7 +2,9 @@ if exists('dein#_progname')
   " Color scheme
   if dein#tap('moonlight.vim')
     function! MyHighlights()
+      " Floating window background with higher contrast
       hi CocFloating      guibg=#1B1B1B
+      " Make hovered word bold
       hi CocHighlightText guibg=#111111 gui=bold
     endfunction
 
@@ -79,7 +81,7 @@ if exists('dein#_progname')
       autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
 
       " Update signature help on jump placeholder
-      autocmd CursorHold * silent call CocActionAsync('showSignatureHelp')
+      autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
     augroup end
     
     " Make yank highlight a flash
