@@ -6,7 +6,7 @@
 #cell_width_scale = 1.0
 #clickable_url = true
 #dynamic_title = true
-font = Cousine 12
+font = Cousine 11
 #fullscreen = true
 #icon_name = terminal
 #mouse_autohide = false
@@ -39,53 +39,55 @@ scrollback_lines = 10000
 
 # "off", "left" or "right"
 #scrollbar = off
-
 [colors]
-foreground          = #dacfb1
-foreground_bold     = #c0c2b5
-cursor              = #c0c2b5
-cursor_foreground   = #441c1c
-background          = rgba(34, 14, 14, 0.8)
+# Base16 Dark Violet
+# Author: ruler501 (https://github.com/ruler501/base16-darkviolet)
+
+foreground          = #b08ae6
+foreground_bold     = #b08ae6
+cursor              = #b08ae6
+cursor_foreground   = #000000
+background          = #000000
 
 # 16 color space
 
 # Black, Gray, Silver, White
-color0  = #441c1c
-color8  = #8f7566
-color7  = #dacfb1
-color15 = #fff0e2
+color0  = #000000
+color8  = #593380
+color7  = #b08ae6
+color15 = #a366ff
 
 # Red
-color1  = #ce6142
-color9  = #ce6142
+color1  = #a82ee6
+color9  = #a82ee6
 
 # Green
-color2  = #b6c773
-color10 = #b6c773
+color2  = #4595e6
+color10 = #4595e6
 
 # Yellow
-color3  = #ebd035
-color11 = #ebd035
+color3  = #f29df2
+color11 = #f29df2
 
 # Blue
-color4  = #b3bcb0
-color12 = #b3bcb0
+color4  = #4136d9
+color12 = #4136d9
 
 # Purple
-color5  = #ba7a87
-color13 = #ba7a87
+color5  = #7e5ce6
+color13 = #7e5ce6
 
 # Teal
-color6  = #97a294
-color14 = #97a294
+color6  = #40dfff
+color14 = #40dfff
 
 # Extra colors
-color16 = #d7b231
-color17 = #be7525
-color18 = #170200
-color19 = #605e51
-color20 = #583030
-color21 = #c0c2b5
+color16 = #bb66cc
+color17 = #a886bf
+color18 = #231a40
+color19 = #432d59
+color20 = #00ff00
+color21 = #9045e6
 
 [hints]
 #font = Monospace 12
