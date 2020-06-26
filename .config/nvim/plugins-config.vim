@@ -60,6 +60,7 @@ if exists('dein#_progname')
         \  'coc-lists',
         \  'coc-marketplace',
         \  'coc-pairs',
+        \  'coc-rls',
         \  'coc-sh',
         \  'coc-tsserver',
         \  'coc-vetur',
