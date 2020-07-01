@@ -79,6 +79,7 @@ setopt complete_aliases
 
 function proxy_on() {
     export no_proxy="localhost,127.0.0.1,localaddress,.localdomain.com"
+    export NO_PROXY=$no_proxy
     if (( $# > 0 )); then
         valid=$(echo $@ | sed -n 's/\([0-9]\{1,3\}.\?\)\{4\}:\([0-9]\+\)/&/p')
         if [[ $valid != $@ ]]; then
@@ -86,37 +87,22 @@ function proxy_on() {
             return 1
         fi
         local proxy=$1
-        export http_proxy="$proxy" \
-               https_proxy=$proxy \
-               ftp_proxy=$proxy \
-               rsync_proxy=$proxy \
-               all_proxy=$proxy \
+        export http_proxy=$proxy \
                HTTP_PROXY=$proxy \
+               https_proxy=$proxy \
                HTTPS_PROXY=$proxy \
+               ftp_proxy=$proxy \
                FTP_PROXY=$proxy \
-               RSYNC_PROXY=$proxy \
-               ALL_PROXY=$proxy
+               rsync_proxy=$proxy \
+               RSYNC_PROXY=$proxy
         echo "Proxy environment variable set."
         return 0
     fi
-    echo -n "server: "; read server
-    echo -n "port: "; read port
-    local proxy=$server:$port
-    export http_proxy="$proxy" \
-           https_proxy=$proxy \
-           ftp_proxy=$proxy \
-           rsync_proxy=$proxy \
-           all_proxy=$proxy \
-           HTTP_PROXY=$proxy \
-           HTTPS_PROXY=$proxy \
-           FTP_PROXY=$proxy \
-           RSYNC_PROXY=$proxy \
-           ALL_PROXY=$proxy
 }
 
 function proxy_off() {
-    unset http_proxy https_proxy ftp_proxy rsync_proxy all_proxy \
-          HTTP_PROXY HTTPS_PROXY FTP_PROXY RSYNC_PROXY ALL_PROXY
+    unset no_proxy http_proxy https_proxy ftp_proxy rsync_proxy \
+          NO_PROXY HTTP_PROXY HTTPS_PROXY FTP_PROXY RSYNC_PROXY
     echo -e "Proxy environment variable removed."
 }
 
