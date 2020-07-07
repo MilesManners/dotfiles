@@ -1,0 +1,7 @@
+[pull]
+  rebase = true
+
+[include]
+  path = ~/.gitconfig.local
+  path = ~/.gitconfig.aliases
+  path = ~/.gitconfig.tools
