@@ -1,5 +1,6 @@
 {
   "coc.preferences.currentFunctionSymbolAutoUpdate": true,
+  "coc.preferences.formatOnSaveFiletypes": ["rust"],
 
   "codeLens.enable": true,
 
