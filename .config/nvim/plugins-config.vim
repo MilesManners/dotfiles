@@ -16,6 +16,14 @@ if exists('dein#_progname')
     colo moonlight
   endif
 
+  if dein#tap('goyo.vim')
+    augroup limelight
+      autocmd!
+      autocmd User GoyoEnter Limelight
+      autocmd User GoyoLeave Limelight!
+    augroup end
+  endif
+
   " Lightline config
   if dein#tap('lightline.vim')
     let g:lightline = {
@@ -60,7 +68,7 @@ if exists('dein#_progname')
         \  'coc-lists',
         \  'coc-marketplace',
         \  'coc-pairs',
-        \  'coc-rls',
+        \  'coc-rust-analyzer',
         \  'coc-sh',
         \  'coc-tsserver',
         \  'coc-vetur',
