@@ -18,6 +18,8 @@ call dein#add('tpope/vim-fugitive')
 
 " Interface
 call dein#add('itchyny/lightline.vim')
+call dein#add('junegunn/goyo.vim')
+call dein#add('junegunn/limelight.vim')
 
 " Commands
 call dein#add('michaeljsmith/vim-indent-object')
