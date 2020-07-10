@@ -1,0 +1,17 @@
+[merge]
+  tool = nvim
+[mergetool]
+  prompt = false
+
+[mergetool "fugitive"]
+  cmd = nvim -f -c \"Gdiffsplit!\" \"$MERGED\"
+[mergetool "nvim"]
+  cmd = nvim -d $LOCAL $MERGED $REMOTE -c '$wincmd w'
+
+[diff]
+  tool = nvim
+[difftool]
+  prompt = false
+
+[difftool "nvim"]
+  cmd = nvim -d $REMOTE $LOCAL
