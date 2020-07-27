@@ -1,0 +1,158 @@
+# Language .......................................
+
+[[plugins]]
+repo = 'sheerun/vim-polyglot'
+
+# Completion .....................................
+
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+merged = 0
+rev = 'release'
+if = "has('nvim')"
+hook_add = '''
+  let g:coc_global_extensions=[
+        \  'coc-actions',
+        \  'coc-css',
+        \  'coc-eslint',
+        \  'coc-explorer',
+        \  'coc-git',
+        \  'coc-highlight',
+        \  'coc-html',
+        \  'coc-import-cost',
+        \  'coc-json',
+        \  'coc-lists',
+        \  'coc-marketplace',
+        \  'coc-pairs',
+        \  'coc-rust-analyzer',
+        \  'coc-sh',
+        \  'coc-tsserver',
+        \  'coc-vetur',
+        \  'coc-vimlsp',
+        \  'coc-yaml',
+        \]
+
+  set signcolumn=yes
+
+  augroup mygroup
+    autocmd!
+
+    " Highlight occurences of word under cursor
+    autocmd CursorHold * silent call CocActionAsync('highlight')
+
+    " Setup formatexpr specified filetype(s)
+    autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+
+    " Update signature help on jump placeholder
+    autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+  augroup end
+  
+  function! s:cocActionsOpenFromSelected(type) abort
+    execute 'CocCommand actions.open ' . a:type
+  endfunction
+
+  " Add `:Format` command to format current buffer.
+  command! -nargs=0 Format :call CocAction('format')
+'''
+
+[[plugins]]
+repo = 'mattn/emmet-vim'
+
+# Code Display ...................................
+
+[[plugins]]
+repo = 'frazrepo/vim-rainbow'
+hook_add = 'let g:rainbow_active=1'
+
+[[plugins]]
+repo = 'lewis6991/moonlight.vim'
+hook_add = '''
+  function! MyHighlights()
+    " Floating window background with higher contrast
+    hi CocFloating      guibg=#1B1B1B
+    " Make hovered word bold
+    hi CocHighlightText guibg=#111111 gui=bold
+    " Clearer cursorline
+    hi CursorLine       guibg=#121524
+    " Bold matching bracket
+    hi MatchParen       gui=bold
+  endfunction
+
+  augroup MyColors
+    autocmd!
+    au ColorScheme moonlight call MyHighlights()
+  augroup end
+
+  colo moonlight
+'''
+
+# Integrations ...................................
+
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+hook_add = '''
+  " Prevent EditorConfig from clashing with Fugitive
+  let g:EditorConfig_exclude_patterns = ['fugitive://.*']
+'''
+
+# Interface ......................................
+
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+hook_add = '''
+  let g:lightline = {
+        \  'colorscheme': 'one',
+        \  'active': {
+        \    'left': [['mode', 'paste'], ['git', 'diagnostic', 'filename', 'method', 'modified']],
+        \    'right': [['filetype', 'fileencoding', 'lineinfo', 'percent'], ['blame']]
+        \  },
+        \  'inactive': {
+        \    'left': [['filename', 'modified']],
+        \    'right': [['lineinfo'], ['percent']]
+        \  },
+        \  'component_function': {
+        \    'blame': 'LightlineGitBlame'
+        \  },
+        \}
+                                                                                                   
+  function! LightlineGitBlame() abort
+    let blame = get(b:, 'coc_git_blame', '')
+    " return blame
+    return winwidth(0) > 120 ? blame : ''
+  endfunction
+'''
+
+[[plugins]]
+repo = 'junegunn/goyo.vim'
+hook_add = '''
+  augroup limelight
+    autocmd!
+    autocmd User GoyoEnter Limelight
+    autocmd User GoyoLeave Limelight!
+  augroup end
+'''
+
+[[plugins]]
+repo = 'junegunn/limelight.vim'
+
+# Commands .......................................
+
+[[plugins]]
+repo = 'michaeljsmith/vim-indent-object'
+
+[[plugins]]
+repo = 'tpope/vim-repeat'
+
+[[plugins]]
+repo = 'tpope/vim-commentary'
+
+[[plugins]]
+repo = 'tpope/vim-surround'
+
+# Other ..........................................
+
+[[plugins]]
+repo = 'tpope/vim-sensible'
+
+[[plugins]]
+repo = 'tpope/vim-sleuth'

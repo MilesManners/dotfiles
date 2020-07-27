@@ -45,6 +45,11 @@ set foldmethod=syntax
 " Start file with all folds open
 set foldlevelstart=99
 
+augroup yank
+  autocmd!
+  au TextYankPost * silent! lua vim.highlight.on_yank()
+augroup end
+
 " Fixes for plop.js
 augroup plopfiles
   autocmd!
