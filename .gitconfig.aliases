@@ -7,3 +7,4 @@
 	unhide-all = update-index --really-refresh
 	hidden = "!f(){ git -C \"$GIT_PREFIX\" ls-files -v \"$@\" | grep \"^[a-z]\";}; f"
 	ignored = "!f(){ git -C \"$GIT_PREFIX\" status -s --ignored \"$@\" | grep \"^!!\";}; f"
+	tracked = ls-tree -r --name-only
