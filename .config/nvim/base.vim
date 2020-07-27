@@ -45,6 +45,9 @@ set foldmethod=syntax
 " Start file with all folds open
 set foldlevelstart=99
 
+" Keep things fast
+set lazyredraw
+
 augroup yank
   autocmd!
   au TextYankPost * silent! lua vim.highlight.on_yank()
