@@ -5,12 +5,12 @@ These are my dotfiles for my workstation. They are setup as a bare repository.
 For more information on a setup like this, check [the atlassian tutorial](https://www.atlassian.com/git/tutorials/dotfiles) or one of the many similar articles.
 
 ### [neovim](https://neovim.io/) editor - [.config/nvim](.config/nvim)
-- [Dein](https://github.com/Shougo/dein.vim) plugin manager - [den.vim](.config/nvim/dein.vim)
+- [Dein](https://github.com/Shougo/dein.vim) plugin manager - [.config/nvim/init.vim](.config/nvim/init.vim)
 - [CoC](https://github.com/neoclide/coc.nvim) - [coc-settings.json](.config/nvim/coc-settings.json)
   - CoC extensions are preferred to Vim extensions when reasonable for performance
-  - Such as `coc-yank` for yank highlighting and `coc-eslint` for JS linting
+  - Such as `coc-explorer` for a file explorer and `coc-eslint` for JS linting
 - [Moonlight](http://vimcolors.com/1189/moonlight/dark) theme
-- See [.config/nvim/plugins.vim](.config/nvim/plugins.vim) for a full list of plugins
+- See [.config/nvim/plugins.toml](.config/nvim/plugins.toml) for a full list of plugins
 
 ### [zsh](https://www.zsh.org/) shell - [.zshrc](.zshrc)
 - [Oh My Zsh](https://ohmyz.sh/) configuration framework
