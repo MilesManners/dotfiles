@@ -43,7 +43,18 @@ nnoremap <silent> <leader>a :<C-u>set operatorfunc=<SID>cocActionsOpenFromSelect
 " rename the current word in the cursor
 nmap <silent> <leader>rn <Plug>(coc-rename)
 
-inoremap <silent><expr> <TAB>   pumvisible() ? "\<C-n>" : coc#refresh()
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
 inoremap <silent><expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 " GoTo code navigation.
@@ -52,12 +63,19 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
+" Apply AutoFix to problem on the current line.
+nmap <silent> <leader>qf <Plug>(coc-fix-current)
+
 " Introduce function text object
 " NOTE: Requires 'textDocument.documentSymbol' support from the language server.
 xmap <silent> if <Plug>(coc-funcobj-i)
 xmap <silent> af <Plug>(coc-funcobj-a)
 omap <silent> if <Plug>(coc-funcobj-i)
 omap <silent> af <Plug>(coc-funcobj-a)
+xmap <silent> ic <Plug>(coc-classobj-i)
+omap <silent> ic <Plug>(coc-classobj-i)
+xmap <silent> ac <Plug>(coc-classobj-a)
+omap <silent> ac <Plug>(coc-classobj-a)
 
 " Use `[g` and `]g` to navigate diagnostics
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
@@ -86,13 +104,26 @@ nmap <silent> <leader>cf <Plug>(coc-format-selected)<CR>
 vmap <silent> <leader>cf <Plug>(coc-format-selected)<CR>
 
 " run code actions
-vmap <silent> <leader>ca <Plug>(coc-codeaction-selected)<CR>
+xmap <silent> <leader>ca <Plug>(coc-codeaction-selected)<CR>
 nmap <silent> <leader>ca <Plug>(coc-codeaction-selected)<CR>
 
 nnoremap <silent> <leader>e :CocCommand explorer --position=floating<CR>
 
-" coc-pairs newline fix
-inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+" Use CTRL-S for selections ranges.
+" Requires 'textDocument/selectionRange' support of LS, ex: coc-tsserver
+nmap <silent> <C-s> <Plug>(coc-range-select)
+xmap <silent> <C-s> <Plug>(coc-range-select)
+
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
+" position. Coc only does snippet and additional edit on confirm.
+" <cr> could be remapped by other vim plugin, try `:verbose imap <CR>`.
+" coc-pairs newline fix in both options
+if exists('*complete_info')
+  inoremap <silent><expr> <CR> complete_info()["selected"] != "-1" ? "\<C-y>" : pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+else
+  inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+endif
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
