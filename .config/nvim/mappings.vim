@@ -32,9 +32,17 @@ tnoremap <A-s> <Esc><C-w>s
 tnoremap <A-v> <Esc><C-w>v
 
 " Window close
-nnoremap <A-c> <C-w>c
+nnoremap <A-c> <C-w>q
+tnoremap <A-c> <C-w>q
 
-tnoremap <A-c> <C-w>c
+nnoremap <silent> <A-q> :<C-u>bd<CR>
+tnoremap <silent> <A-q> :<C-w>bd!<CR>
+
+function! s:visual_center() range
+  execute a:firstline + (a:lastline - a:firstline) / 2
+endfunction
+
+xnoremap zz :call <SID>visual_center()<CR>zzgv
 
 " CoC
 xnoremap <silent> <leader>a :<C-u>execute 'CocCommand actions.open ' . visualmode()<CR>
