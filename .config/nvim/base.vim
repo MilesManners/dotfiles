@@ -45,6 +45,9 @@ set foldmethod=syntax
 " Start file with all folds open
 set foldlevelstart=99
 
+" Allow omnifunc
+set omnifunc=syntaxcomplete#Complete
+
 " Keep things fast
 set lazyredraw
 
