@@ -71,7 +71,7 @@ hook_add = '''
     " Floating window background with higher contrast
     hi CocFloating      guibg=#1B1B1B
     " Make hovered word bold
-    hi CocHighlightText guibg=#111111 gui=bold
+    hi CocHighlightText guibg=#333333
     " Clearer cursorline
     hi CursorLine       guibg=#121524
     " Bold matching bracket
