@@ -2,6 +2,7 @@
 
 [[plugins]]
 repo = 'sheerun/vim-polyglot'
+merged = 0
 
 # Completion .....................................
 
@@ -54,6 +55,9 @@ hook_add = '''
   " Add `:Format` command to format current buffer.
   command! -nargs=0 Format :call CocAction('format')
 '''
+
+[[plugins]]
+repo = 'honza/vim-snippets'
 
 [[plugins]]
 repo = 'mattn/emmet-vim'
@@ -156,3 +160,7 @@ repo = 'tpope/vim-sensible'
 
 [[plugins]]
 repo = 'tpope/vim-sleuth'
+
+[[plugins]]
+repo = 'milesmanners/vim-stagehand'
+rev = 'quieter'
