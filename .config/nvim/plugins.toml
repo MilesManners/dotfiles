@@ -163,4 +163,3 @@ repo = 'tpope/vim-sleuth'
 
 [[plugins]]
 repo = 'milesmanners/vim-stagehand'
-rev = 'quieter'
