@@ -106,6 +106,8 @@ repo = 'itchyny/lightline.vim'
 hook_add = '''
   let g:lightline = {
         \  'colorscheme': 'one',
+        \  'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
+        \  'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" },
         \  'active': {
         \    'left': [['mode', 'paste'], ['git', 'diagnostic', 'filename', 'method', 'modified']],
         \    'right': [['filetype', 'fileencoding', 'lineinfo', 'percent'], ['blame']]
@@ -118,7 +120,7 @@ hook_add = '''
         \    'blame': 'LightlineGitBlame'
         \  },
         \}
-                                                                                                   
+
   function! LightlineGitBlame() abort
     let blame = get(b:, 'coc_git_blame', '')
     " return blame
@@ -163,3 +165,22 @@ repo = 'tpope/vim-sleuth'
 
 [[plugins]]
 repo = 'milesmanners/vim-stagehand'
+
+[[plugins]]
+repo = 'kristijanhusak/vim-carbon-now-sh'
+hook_add='''
+  let g:carbon_now_sh_options = {
+    \'wc': 'false',
+    \'fm': 'Fira Code',
+    \'t': 'night-owl'
+  \}
+'''
+
+[[plugins]]
+repo = 'junegunn/vim-peekaboo'
+
+[[plugins]]
+repo = 'metakirby5/codi.vim'
+
+[[plugins]]
+repo = 'mbbill/undotree'
