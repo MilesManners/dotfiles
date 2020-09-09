@@ -73,8 +73,9 @@ dotfiles log --oneline
 Create a new branch of the target upstream branch.
 Here, the naming convention for staging branches is `<downstream-branch>-upstream-<upstream-branch>`.
 The name is arbitrary, but it prevents conflicts and creates consitency in the repo.
+It will be reffered to as `<intermediary-branch>` from here on.
 ```bash
-dotfiles checkout -b <downstream-branch>-upstream-<upstream-branch> <upstream-branch>
+dotfiles checkout -b <intermediary-branch> <upstream-branch>
 ```
 Use `cherry-pick` to add the commits you identified in step one.
 ```bash
@@ -82,11 +83,11 @@ dotfiles cherry-pick <commits>
 ```
 Push your holding branch upstream.
 ```bash
-dotfiles push origin <downstream-branch>-upstream-<upstream-branch>
+dotfiles push origin <intermediary-branch>
 ```
 Now, create a pull request to the upstream branch
 
 Once the pull request is merged, the holding branch can be deleted.
 ```bash
-dotfiles push origin :<downstream-branch>-upstream<upstream-branch>
+dotfiles branch -D <intermediary-branch>
 ```
