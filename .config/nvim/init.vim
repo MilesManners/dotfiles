@@ -61,5 +61,9 @@ if dein#check_install()
   call dein#install()
 endif
 
+try
+  colo nightfly
+endtry
+
 " Key mapping changes (remember <leader> was changed above)
 exec 'silent source '.g:config_dir.'mappings.vim'
