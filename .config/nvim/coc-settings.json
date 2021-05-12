@@ -11,11 +11,15 @@
   "explorer.file.autoReveal": true,
   "explorer.icon.enableNerdfont": true,
   "explorer.openAction.strategy": "sourceWindow",
-  "explorer.keyMappings": {
-    "v": "open:vsplit"
+  "explorer.keyMappings.global": {
+    "v": "open:vsplit",
+    "gj": "expandableNext",
+    "gk": "expandablePrev"
   },
 
   "list.maxPreviewHeight": 30,
+  "list.height": 30,
+  "list.source.grep.useLiteral": false,
 
   "rust-analyzer.lens.enable": false,
   
@@ -25,5 +29,7 @@
   },
 
   "suggest.autoTrigger": "always",
-  "suggest.enablePreview": true
+  "suggest.enablePreview": true,
+
+  "yaml.schemaStore.enable": true
 }

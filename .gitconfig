@@ -5,3 +5,6 @@
   path = ~/.gitconfig.local
   path = ~/.gitconfig.aliases
   path = ~/.gitconfig.tools
+
+[init]
+	defaultBranch = main

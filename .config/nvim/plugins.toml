@@ -5,6 +5,22 @@ repo = 'sheerun/vim-polyglot'
 merged = 0
 if = "!exists('g:vscode')"
 
+[[plugins]]
+repo = 'kchmck/vim-coffee-script'
+if = "!exists('g:vscode')"
+
+[[plugins]]
+repo = 'tpope/vim-markdown'
+if = "!exists('g:vscode')"
+
+[[plugins]]
+repo = 'vim-pandoc/vim-pandoc'
+if = "!exists('g:vscode')"
+
+[[plugins]]
+repo = 'vim-pandoc/vim-pandoc-syntax'
+if = "!exists('g:vscode')"
+
 # Completion .....................................
 
 [[plugins]]
@@ -48,7 +64,7 @@ hook_add = '''
     " Update signature help on jump placeholder
     autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
   augroup end
-  
+
   function! s:cocActionsOpenFromSelected(type) abort
     execute 'CocCommand actions.open ' . a:type
   endfunction
@@ -67,10 +83,10 @@ if = "!exists('g:vscode')"
 
 # Code Display ...................................
 
-[[plugins]]
-repo = 'frazrepo/vim-rainbow'
-if = "!exists('g:vscode')"
-hook_add = 'let g:rainbow_active=1'
+# [[plugins]]
+# repo = 'frazrepo/vim-rainbow'
+# if = "!exists('g:vscode')"
+# hook_add = 'let g:rainbow_active=1'
 
 [[plugins]]
 repo = 'lewis6991/moonlight.vim'
@@ -289,4 +305,8 @@ if = "exists('g:vscode')"
 
 [[plugins]]
 repo = 'gkz/vim-ls'
+if = "!exists('g:vscode')"
+
+[[plugins]]
+repo = 'posva/vim-vue'
 if = "!exists('g:vscode')"

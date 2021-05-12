@@ -49,9 +49,22 @@ plugins=(
   git
   fast-syntax-highlighting
   zsh-autosuggestions
+  rust
+  rustup
+  pip
+  yarn
 )
 
 source $ZSH/oh-my-zsh.sh
+
+# Add user bin to path
+if [ -d "$HOME/bin" ]; then
+  export PATH="$HOME/bin:$PATH"
+fi
+
+if [ -d "$HOME/.local/bin" ]; then
+  export PATH="$HOME/.local/bin:$PATH"
+fi
 
 # Add Yarn to path
 if [ -d "$HOME/.yarn" ]; then
@@ -105,6 +118,9 @@ function proxy_off() {
           NO_PROXY HTTP_PROXY HTTPS_PROXY FTP_PROXY RSYNC_PROXY
     echo -e "Proxy environment variable removed."
 }
+
+# fnm
+eval "$(fnm env)"
 
 # Show system info with Neofetch
 if [ -x "$(command -v neofetch)" ]; then

@@ -4,39 +4,43 @@ nnoremap <silent><expr> <leader>so ':so '.g:config_dir.'init.vim<CR>'
 " Escape from terminal
 tnoremap <Esc> <C-\><C-n>
 
+" Window mappings <leader> w
+
 " Window movement
-nnoremap <A-h> <C-w>h
-nnoremap <A-j> <C-w>j
-nnoremap <A-k> <C-w>k
-nnoremap <A-l> <C-w>l
-nnoremap <A-w> <C-w>w
-nnoremap <A-p> <C-w>p
+nnoremap <leader>wh <C-w>h
+nnoremap <leader>wj <C-w>j
+nnoremap <leader>wk <C-w>k
+nnoremap <leader>wl <C-w>l
+nnoremap <leader>ww <C-w>w
+nnoremap <leader>wp <C-w>p
 
-tmap <A-h> <Esc><C-w>h
-tmap <A-j> <Esc><C-w>j
-tmap <A-k> <Esc><C-w>k
-tmap <A-l> <Esc><C-w>l
-tmap <A-w> <Esc><C-w>w
-tmap <A-p> <Esc><C-w>p
-
-" Window resize
-nnoremap <A-=> <C-w>=
-
-tnoremap <A-=> <Esc><C-w>=
+nnoremap <leader>wH <C-w>H
+nnoremap <leader>wJ <C-w>J
+nnoremap <leader>wK <C-w>K
+nnoremap <leader>wL <C-w>L
+nnoremap <leader>wW <C-w>W
 
 " Window splits
-nnoremap <A-s> <C-w>s
-nnoremap <A-v> <C-w>v
-
-tnoremap <A-s> <Esc><C-w>s
-tnoremap <A-v> <Esc><C-w>v
+nnoremap <leader>ws <C-w>s
+nnoremap <leader>wv <C-w>v
 
 " Window close
-nnoremap <A-c> <C-w>q
-tnoremap <A-c> <C-w>q
+nnoremap <leader>wq <C-w>q
+nnoremap <leader>wc <C-w>c
 
-nnoremap <silent> <A-q> :<C-u>bd<CR>
-tnoremap <silent> <A-q> :<C-w>bd!<CR>
+nnoremap <leader>wo <C-w>o
+nnoremap <leader>wT <c-w>T
+
+" Buffer mappings <leader> b
+aug vimrc_mappings
+  au!
+  au VimEnter * 
+     \  if exists(":CocList")
+     \|   nnoremap <silent> <leader>bb :<C-u>CocList buffers<CR>
+     \| else
+     \|   nnoremap <silent> <leader>bb :<C-u>buffers<CR>
+     \| endif
+aug END
 
 function! s:visual_center() range
   execute a:firstline + (a:lastline - a:firstline) / 2
@@ -130,6 +134,10 @@ else
   nnoremap <silent> <leader>cR :<C-u>CocRestart<CR>
   " List errors
   nnoremap <silent> <leader>cl :<C-u>CocList locationlist<CR>
+  " Grep in CWD
+  nnoremap <silent> <leader>c/ :<C-u>CocList grep<CR>
+  " Buffers
+  nnoremap <silent> <leader>cb :<C-u>CocList buffers<CR>
 
   " format code
   nmap <silent> <leader>cf <Plug>(coc-format-selected)<CR>
