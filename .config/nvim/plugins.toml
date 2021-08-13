@@ -166,6 +166,10 @@ hook_source = '''
   au! ColorScheme colocandid call ColoCandid()
 '''
 
+[[plugins]]
+repo = 'powerman/vim-plugin-AnsiEsc'
+if = "!exists('g:vscode')"
+
 # Integrations ...................................
 
 [[plugins]]
@@ -255,6 +259,10 @@ repo = 'tpope/vim-commentary'
 
 [[plugins]]
 repo = 'tpope/vim-surround'
+
+[[plugins]]
+repo = 'mtth/scratch.vim'
+if = "!exists('g:vscode')"
 
 # Other ..........................................
 

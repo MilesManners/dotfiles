@@ -30,6 +30,11 @@
 
   "suggest.autoTrigger": "always",
   "suggest.enablePreview": true,
+  "cSpell.userWords": [
+    "quick",
+    "scoutfdc",
+    "sight"
+  ],
 
   "yaml.schemaStore.enable": true
 }

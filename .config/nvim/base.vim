@@ -63,3 +63,6 @@ augroup plopfiles
   au BufNewFile,BufRead *.tsx.hbs set filetype=typescriptreact.handlebars | set syntax=typescriptreact
   au BufNewFile,BufRead *.css.hbs set filetype=css.handlebars | set syntax=css
 augroup end
+
+let g:node_host_prog = '~/.fnm/node-versions/v15.11.0/installation/bin/node'
+let g:coc_node_path = '~/.fnm/node-versions/v15.11.0/installation/bin/node'
