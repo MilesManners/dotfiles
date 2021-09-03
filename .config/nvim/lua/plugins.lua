@@ -47,13 +47,16 @@ return require('packer').startup(function()
   }
 
   -- completion
-  use {
-    'nvim-lua/completion-nvim',
-    requires = {{'hrsh7th/vim-vsnip'}, {'hrsh7th/vim-vsnip-integ'}},
-    config = function()
-      vim.cmd 'autocmd BufEnter * lua require\'completion\'.on_attach()'
-    end
-  }
+  use { 'ms-jpq/coq_nvim', branch = 'coq'} -- main one
+  use { 'ms-jpq/coq.artifacts', branch= 'artifacts'} -- 9000+ Snippets
+
+  -- use {
+  --   'nvim-lua/completion-nvim',
+  --   requires = {{'hrsh7th/vim-vsnip'}, {'hrsh7th/vim-vsnip-integ'}},
+  --   config = function()
+  --     vim.cmd 'autocmd BufEnter * lua require\'completion\'.on_attach()'
+  --   end
+  -- }
 
   use 'nvim-treesitter/completion-treesitter'
 
