@@ -20,6 +20,8 @@ utils.map({
     {'<leader>wc', '<C-w>c'},
     {'<leader>wq', '<C-w>q'},
 
+    {'<leader>wT', '<C-w>T'},
+
     {'<leader>ff', '<cmd>lua require(\'telescope.builtin\').find_files()<cr>'},
     {'<leader>f/', '<cmd>lua require(\'telescope.builtin\').live_grep()<cr>'},
     {'<leader>fb', '<cmd>lua require(\'telescope.builtin\').buffers()<cr>'},
