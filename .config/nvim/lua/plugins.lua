@@ -138,6 +138,8 @@ return require('packer').startup(function()
   use {'tpope/vim-repeat'}
   use {'tpope/vim-commentary'}
   use {'tpope/vim-fugitive'}
+  use {'tpope/vim-rhubarb'}
+  use {'tpope/vim-unimpaired'}
 
   use {'powerman/vim-plugin-AnsiEsc'}
 
