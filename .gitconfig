@@ -7,4 +7,17 @@
   path = ~/.gitconfig.tools
 
 [init]
-	defaultBranch = main
+  defaultBranch = main
+
+[color]
+  ui = auto
+
+[advice]
+  statusHints = false
+
+[diff]
+  renames = copies
+  mnemonicprefix = true
+
+[core]
+  whitespace = trailing-space,space-before-tab
