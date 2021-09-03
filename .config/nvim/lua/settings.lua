@@ -46,5 +46,6 @@ utils.create_augroup('nvim_yank', {
 g.neovide_cursor_vfx_mode = 'pixiedust'
 
 utils.create_augroup('syntax_associations', {
-  {'BufRead,BufNewFile', '*.handlebars,*.hbs', 'set ft=html.handlebars'}
+  {'BufRead,BufNewFile', '*.handlebars,*.hbs', 'set ft=html.handlebars'},
+  {'BufRead,BufNewFile', '.gitconfig.*', 'set ft=gitconfig'}
 })
