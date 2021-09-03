@@ -88,9 +88,11 @@ return require('packer').startup(function()
   -- easier LSP config
   use {'neovim/nvim-lspconfig'}
 
-  require('lspconfig').tsserver.setup{}
+  local nvim_lsp = require'lspconfig'
+
+  nvim_lsp.tsserver.setup{}
+  nvim_lsp.bashls.setup{}
   -- require('lspconfig').pyls.setup{}
-  require'lspconfig'.bashls.setup{}
   -- require('lspconfig').pyright.setup{}
 
   -- use {
