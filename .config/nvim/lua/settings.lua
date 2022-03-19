@@ -25,18 +25,26 @@ o.splitright = true
 -- show some hidden characters
 wo.list      = true
 
+-- More normal mouse behavior
+g.mouse      = 'a'
+
 -- Better completion experience
 o.completeopt = 'menuone,noinsert,noselect'
 
 -- Avoid showing extra message during completion
 o.shortmess = o.shortmess .. 'c'
 
--- lightline
-g.lightline = {colorscheme = 'nightfly'}
+-- Don't show diagnostic sign column
+vim.diagnostic.config({
+  signs = false
+})
 
--- completion
-g.completion_enable_auto_popup = 0
-g.completion_enable_snippet = 'vim-vsnip'
+-- Theme
+g.tokyonight_hide_inactive_statusline = false
+g.tokyonight_sidebars = { 'qf', 'vista_kind', 'terminal', 'packer', 'help', 'fugitive', 'gitcommit', 'trouble' }
+
+-- COQ
+g.coq_settings = { auto_start = 'shut-up' }
 
 utils.create_augroup('nvim_yank', {
   {'TextYankPost', '*', 'silent! lua vim.highlight.on_yank()'}
@@ -49,3 +57,9 @@ utils.create_augroup('syntax_associations', {
   {'BufRead,BufNewFile', '*.handlebars,*.hbs', 'set ft=html.handlebars'},
   {'BufRead,BufNewFile', '.gitconfig.*', 'set ft=gitconfig'}
 })
+
+-- vim-highlight
+g.lcolor_bg = "#4B0082,#0a4c4b,#671a52,#4c141a,#093c26,#000f40,#4f004f,#293652"
+
+-- coffeescript
+g.coffee_compiler = 'npx coffee'

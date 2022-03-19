@@ -50,7 +50,6 @@ plugins=(
   fast-syntax-highlighting
   zsh-autosuggestions
   rust
-  rustup
   pip
   yarn
 )
