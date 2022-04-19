@@ -56,7 +56,8 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-# Add user bin to path
+# Path building
+# Add user bin
 if [ -d "$HOME/bin" ]; then
   export PATH="$HOME/bin:$PATH"
 fi
@@ -65,12 +66,12 @@ if [ -d "$HOME/.local/bin" ]; then
   export PATH="$HOME/.local/bin:$PATH"
 fi
 
-# Add Yarn to path
+# Add Yarn
 if [ -d "$HOME/.yarn" ]; then
   export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 fi
 
-# Add perl to path
+# Add perl
 if [ -d "$HOME/perl5" ]; then
   PATH="$HOME/perl5/bin${PATH:+:${PATH}}"; export PATH;
   PERL5LIB="$HOME/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
@@ -79,8 +80,19 @@ if [ -d "$HOME/perl5" ]; then
   PERL_MM_OPT="INSTALL_BASE=$HOME/perl5"; export PERL_MM_OPT;
 fi
 
+# Add ruby gems
 if [ -x "$(command -v ruby)" ]; then
   PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin"
+fi
+
+# Add Poetry
+if [ -d "$HOME/.poetry/bin" ]; then
+  export PATH="$HOME/.poetry/bin:$PATH"
+fi
+
+# Add arkade
+if [ -d "$HOME/.arkade/bin" ]; then
+  export PATH=$PATH:$HOME/.arkade/bin/
 fi
 
 # dotfiles 
