@@ -151,7 +151,7 @@ function M.setup()
       'nvim-treesitter/nvim-treesitter', run = ':TSUpdate',
       config = function()
         require('nvim-treesitter.configs').setup({
-          ensure_installed = 'maintained',
+          ensure_installed = 'all',
           highlight = {
             enable = true,
             disable = {}
@@ -272,6 +272,8 @@ function M.setup()
         }
       end
     }
+
+    use { 'chrisbra/Colorizer' }
 
     if packer_bootstrap then
       print 'Installing plugins. Restart required after installation!'

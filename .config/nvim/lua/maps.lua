@@ -71,7 +71,7 @@ wk.register({
   },
   f = {
     name = 'file',
-    f     = { '<cmd>lua require("telescope.builtin").find_files()<cr>',                   'Find file' },
+    f     = { '<cmd>lua require("telescope.builtin").find_files({hidden=true,no_ignore=true})<cr>', 'Find file' },
     F     = { '<cmd>lua require("telescope").extensions.file_browser.file_browser()<cr>', 'Browse files' },
     ['/'] = { '<cmd>lua require("telescope.builtin").live_grep()<cr>',                    'Find in files' },
     b     = { '<cmd>lua require("telescope.builtin").buffers()<cr>',                      'Find buffer' },

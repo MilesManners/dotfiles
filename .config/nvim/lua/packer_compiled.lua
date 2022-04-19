@@ -69,6 +69,11 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  Colorizer = {
+    loaded = true,
+    path = "/home/miles/.local/share/nvim/site/pack/packer/start/Colorizer",
+    url = "https://github.com/chrisbra/Colorizer"
+  },
   ["completion-treesitter"] = {
     loaded = true,
     path = "/home/miles/.local/share/nvim/site/pack/packer/start/completion-treesitter",
@@ -106,7 +111,7 @@ _G.packer_plugins = {
     url = "https://github.com/lewis6991/impatient.nvim"
   },
   ["indent-blankline.nvim"] = {
-    config = { "\27LJ\2\n£\1\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\3/show_current_context_start_on_current_line\2\31show_current_context_start\2\25show_current_context\2\nsetup\21indent_blankline\frequire\0" },
+    config = { "\27LJ\2\n£\1\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\3\25show_current_context\2/show_current_context_start_on_current_line\2\31show_current_context_start\2\nsetup\21indent_blankline\frequire\0" },
     loaded = true,
     path = "/home/miles/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
     url = "https://github.com/lukas-reineke/indent-blankline.nvim"
@@ -117,13 +122,13 @@ _G.packer_plugins = {
     url = "https://github.com/folke/lsp-colors.nvim"
   },
   ["lualine.nvim"] = {
-    config = { "\27LJ\2\ne\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\15extensions\1\0\0\1\3\0\0\rquickfix\rfugitive\nsetup\flualine\frequire\0" },
+    config = { "\27LJ\2\nƒ\1\0\0\4\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0025\3\6\0=\3\a\2B\0\2\1K\0\1\0\15extensions\1\3\0\0\rquickfix\rfugitive\foptions\1\0\0\1\0\1\ntheme\tauto\nsetup\flualine\frequire\0" },
     loaded = true,
     path = "/home/miles/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
   ["nvim-dap"] = {
-    config = { "\27LJ\2\nh\0\0\5\0\a\0\f6\0\0\0009\0\1\0009\0\2\0'\2\3\0006\3\0\0009\3\1\0039\3\4\3B\3\1\2'\4\5\0&\3\4\3'\4\6\0D\0\4\0\tfile\16/bin/Debug/\vgetcwd\16Path to dll\ninput\afn\bvimœ\2\1\0\5\0\f\0\0166\0\0\0'\2\1\0B\0\2\0029\1\2\0005\2\4\0005\3\5\0=\3\6\2=\2\3\0019\1\a\0004\2\3\0005\3\t\0003\4\n\0=\4\v\3>\3\1\2=\2\b\1K\0\1\0\fprogram\0\1\0\3\frequest\vlaunch\tname\24launch - netcoredbg\ttype\15netcoredbg\acs\19configurations\targs\1\2\0\0\25--interpreter=vscode\1\0\2\fcommand*/path/to/dotnet/netcoredbg/netcoredbg\ttype\15executable\15netcoredbg\radapters\bdap\frequire\0" },
+    config = { "\27LJ\2\nh\0\0\5\0\a\0\f6\0\0\0009\0\1\0009\0\2\0'\2\3\0006\3\0\0009\3\1\0039\3\4\3B\3\1\2'\4\5\0&\3\4\3'\4\6\0D\0\4\0\tfile\16/bin/Debug/\vgetcwd\16Path to dll\ninput\afn\bvimœ\2\1\0\5\0\f\0\0166\0\0\0'\2\1\0B\0\2\0029\1\2\0005\2\4\0005\3\5\0=\3\6\2=\2\3\0019\1\a\0004\2\3\0005\3\t\0003\4\n\0=\4\v\3>\3\1\2=\2\b\1K\0\1\0\fprogram\0\1\0\3\tname\24launch - netcoredbg\ttype\15netcoredbg\frequest\vlaunch\acs\19configurations\targs\1\2\0\0\25--interpreter=vscode\1\0\2\ttype\15executable\fcommand*/path/to/dotnet/netcoredbg/netcoredbg\15netcoredbg\radapters\bdap\frequire\0" },
     loaded = true,
     path = "/home/miles/.local/share/nvim/site/pack/packer/start/nvim-dap",
     url = "https://github.com/mfussenegger/nvim-dap"
@@ -153,7 +158,7 @@ _G.packer_plugins = {
     url = "https://github.com/rcarriga/nvim-notify"
   },
   ["nvim-treesitter"] = {
-    config = { "\27LJ\2\n´\1\0\0\5\0\t\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0004\4\0\0=\4\5\3=\3\6\0025\3\a\0=\3\b\2B\0\2\1K\0\1\0\16indentation\1\0\1\venable\2\14highlight\fdisable\1\0\1\venable\2\1\0\1\21ensure_installed\15maintained\nsetup\28nvim-treesitter.configs\frequire\0" },
+    config = { "\27LJ\2\n­\1\0\0\5\0\t\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0004\4\0\0=\4\5\3=\3\6\0025\3\a\0=\3\b\2B\0\2\1K\0\1\0\16indentation\1\0\1\venable\2\14highlight\fdisable\1\0\1\venable\2\1\0\1\21ensure_installed\ball\nsetup\28nvim-treesitter.configs\frequire\0" },
     loaded = true,
     path = "/home/miles/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
@@ -210,7 +215,7 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-telescope/telescope-media-files.nvim"
   },
   ["telescope.nvim"] = {
-    config = { "\27LJ\2\n–\2\0\0\6\0\14\0\0176\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\f\0005\3\4\0005\4\3\0=\4\5\0035\4\a\0005\5\6\0=\5\b\4=\4\t\0035\4\n\0=\4\v\3=\3\r\2B\0\2\1K\0\1\0\15extensions\1\0\0\17file_browser\1\0\1\17initial_mode\vnormal\16media_files\14filetypes\1\0\1\rfind_cmd\arg\1\b\0\0\bpng\twebp\bjpg\tjpeg\bpdf\twebm\bmp4\bfzf\1\0\0\1\0\2\25override_file_sorter\2\28override_generic_sorter\2\nsetup\14telescope\frequire\0" },
+    config = { "\27LJ\2\n–\2\0\0\6\0\14\0\0176\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\f\0005\3\4\0005\4\3\0=\4\5\0035\4\a\0005\5\6\0=\5\b\4=\4\t\0035\4\n\0=\4\v\3=\3\r\2B\0\2\1K\0\1\0\15extensions\1\0\0\17file_browser\1\0\1\17initial_mode\vnormal\16media_files\14filetypes\1\0\1\rfind_cmd\arg\1\b\0\0\bpng\twebp\bjpg\tjpeg\bpdf\twebm\bmp4\bfzf\1\0\0\1\0\2\28override_generic_sorter\2\25override_file_sorter\2\nsetup\14telescope\frequire\0" },
     loaded = true,
     path = "/home/miles/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
@@ -301,42 +306,50 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: lualine.nvim
-time([[Config for lualine.nvim]], true)
-try_loadstring("\27LJ\2\ne\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\15extensions\1\0\0\1\3\0\0\rquickfix\rfugitive\nsetup\flualine\frequire\0", "config", "lualine.nvim")
-time([[Config for lualine.nvim]], false)
--- Config for: telescope.nvim
-time([[Config for telescope.nvim]], true)
-try_loadstring("\27LJ\2\n–\2\0\0\6\0\14\0\0176\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\f\0005\3\4\0005\4\3\0=\4\5\0035\4\a\0005\5\6\0=\5\b\4=\4\t\0035\4\n\0=\4\v\3=\3\r\2B\0\2\1K\0\1\0\15extensions\1\0\0\17file_browser\1\0\1\17initial_mode\vnormal\16media_files\14filetypes\1\0\1\rfind_cmd\arg\1\b\0\0\bpng\twebp\bjpg\tjpeg\bpdf\twebm\bmp4\bfzf\1\0\0\1\0\2\25override_file_sorter\2\28override_generic_sorter\2\nsetup\14telescope\frequire\0", "config", "telescope.nvim")
-time([[Config for telescope.nvim]], false)
--- Config for: nvim-dap
-time([[Config for nvim-dap]], true)
-try_loadstring("\27LJ\2\nh\0\0\5\0\a\0\f6\0\0\0009\0\1\0009\0\2\0'\2\3\0006\3\0\0009\3\1\0039\3\4\3B\3\1\2'\4\5\0&\3\4\3'\4\6\0D\0\4\0\tfile\16/bin/Debug/\vgetcwd\16Path to dll\ninput\afn\bvimœ\2\1\0\5\0\f\0\0166\0\0\0'\2\1\0B\0\2\0029\1\2\0005\2\4\0005\3\5\0=\3\6\2=\2\3\0019\1\a\0004\2\3\0005\3\t\0003\4\n\0=\4\v\3>\3\1\2=\2\b\1K\0\1\0\fprogram\0\1\0\3\frequest\vlaunch\tname\24launch - netcoredbg\ttype\15netcoredbg\acs\19configurations\targs\1\2\0\0\25--interpreter=vscode\1\0\2\fcommand*/path/to/dotnet/netcoredbg/netcoredbg\ttype\15executable\15netcoredbg\radapters\bdap\frequire\0", "config", "nvim-dap")
-time([[Config for nvim-dap]], false)
--- Config for: nvim-lsp-installer
-time([[Config for nvim-lsp-installer]], true)
-try_loadstring("\27LJ\2\n%\0\1\6\0\1\0\0064\1\0\0\18\4\0\0009\2\0\0\18\5\1\0B\2\3\1K\0\1\0\nsetupO\1\0\4\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\1\2\0003\3\3\0B\1\2\1K\0\1\0\0\20on_server_ready\23nvim-lsp-installer\frequire\0", "config", "nvim-lsp-installer")
-time([[Config for nvim-lsp-installer]], false)
--- Config for: telescope-media-files.nvim
-time([[Config for telescope-media-files.nvim]], true)
-try_loadstring("\27LJ\2\nP\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0'\2\3\0B\0\2\1K\0\1\0\16media_files\19load_extension\14telescope\frequire\0", "config", "telescope-media-files.nvim")
-time([[Config for telescope-media-files.nvim]], false)
 -- Config for: gitsigns.nvim
 time([[Config for gitsigns.nvim]], true)
 try_loadstring("\27LJ\2\n6\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\rgitsigns\frequire\0", "config", "gitsigns.nvim")
 time([[Config for gitsigns.nvim]], false)
+-- Config for: telescope-file-browser.nvim
+time([[Config for telescope-file-browser.nvim]], true)
+try_loadstring("\27LJ\2\nQ\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0'\2\3\0B\0\2\1K\0\1\0\17file_browser\19load_extension\14telescope\frequire\0", "config", "telescope-file-browser.nvim")
+time([[Config for telescope-file-browser.nvim]], false)
+-- Config for: lualine.nvim
+time([[Config for lualine.nvim]], true)
+try_loadstring("\27LJ\2\nƒ\1\0\0\4\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0025\3\6\0=\3\a\2B\0\2\1K\0\1\0\15extensions\1\3\0\0\rquickfix\rfugitive\foptions\1\0\0\1\0\1\ntheme\tauto\nsetup\flualine\frequire\0", "config", "lualine.nvim")
+time([[Config for lualine.nvim]], false)
+-- Config for: telescope.nvim
+time([[Config for telescope.nvim]], true)
+try_loadstring("\27LJ\2\n–\2\0\0\6\0\14\0\0176\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\f\0005\3\4\0005\4\3\0=\4\5\0035\4\a\0005\5\6\0=\5\b\4=\4\t\0035\4\n\0=\4\v\3=\3\r\2B\0\2\1K\0\1\0\15extensions\1\0\0\17file_browser\1\0\1\17initial_mode\vnormal\16media_files\14filetypes\1\0\1\rfind_cmd\arg\1\b\0\0\bpng\twebp\bjpg\tjpeg\bpdf\twebm\bmp4\bfzf\1\0\0\1\0\2\28override_generic_sorter\2\25override_file_sorter\2\nsetup\14telescope\frequire\0", "config", "telescope.nvim")
+time([[Config for telescope.nvim]], false)
+-- Config for: nvim-treesitter
+time([[Config for nvim-treesitter]], true)
+try_loadstring("\27LJ\2\n­\1\0\0\5\0\t\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0004\4\0\0=\4\5\3=\3\6\0025\3\a\0=\3\b\2B\0\2\1K\0\1\0\16indentation\1\0\1\venable\2\14highlight\fdisable\1\0\1\venable\2\1\0\1\21ensure_installed\ball\nsetup\28nvim-treesitter.configs\frequire\0", "config", "nvim-treesitter")
+time([[Config for nvim-treesitter]], false)
+-- Config for: which-key.nvim
+time([[Config for which-key.nvim]], true)
+try_loadstring("\27LJ\2\n;\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\14which-key\frequire\0", "config", "which-key.nvim")
+time([[Config for which-key.nvim]], false)
+-- Config for: telescope-media-files.nvim
+time([[Config for telescope-media-files.nvim]], true)
+try_loadstring("\27LJ\2\nP\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0'\2\3\0B\0\2\1K\0\1\0\16media_files\19load_extension\14telescope\frequire\0", "config", "telescope-media-files.nvim")
+time([[Config for telescope-media-files.nvim]], false)
+-- Config for: nvim-lsp-installer
+time([[Config for nvim-lsp-installer]], true)
+try_loadstring("\27LJ\2\n%\0\1\6\0\1\0\0064\1\0\0\18\4\0\0009\2\0\0\18\5\1\0B\2\3\1K\0\1\0\nsetupO\1\0\4\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\1\2\0003\3\3\0B\1\2\1K\0\1\0\0\20on_server_ready\23nvim-lsp-installer\frequire\0", "config", "nvim-lsp-installer")
+time([[Config for nvim-lsp-installer]], false)
 -- Config for: indent-blankline.nvim
 time([[Config for indent-blankline.nvim]], true)
-try_loadstring("\27LJ\2\n£\1\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\3/show_current_context_start_on_current_line\2\31show_current_context_start\2\25show_current_context\2\nsetup\21indent_blankline\frequire\0", "config", "indent-blankline.nvim")
+try_loadstring("\27LJ\2\n£\1\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\3\25show_current_context\2/show_current_context_start_on_current_line\2\31show_current_context_start\2\nsetup\21indent_blankline\frequire\0", "config", "indent-blankline.nvim")
 time([[Config for indent-blankline.nvim]], false)
 -- Config for: telescope-github.nvim
 time([[Config for telescope-github.nvim]], true)
 try_loadstring("\27LJ\2\nG\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0'\2\3\0B\0\2\1K\0\1\0\agh\19load_extension\14telescope\frequire\0", "config", "telescope-github.nvim")
 time([[Config for telescope-github.nvim]], false)
--- Config for: trouble.nvim
-time([[Config for trouble.nvim]], true)
-try_loadstring("\27LJ\2\n9\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\ftrouble\frequire\0", "config", "trouble.nvim")
-time([[Config for trouble.nvim]], false)
+-- Config for: nvim-dap
+time([[Config for nvim-dap]], true)
+try_loadstring("\27LJ\2\nh\0\0\5\0\a\0\f6\0\0\0009\0\1\0009\0\2\0'\2\3\0006\3\0\0009\3\1\0039\3\4\3B\3\1\2'\4\5\0&\3\4\3'\4\6\0D\0\4\0\tfile\16/bin/Debug/\vgetcwd\16Path to dll\ninput\afn\bvimœ\2\1\0\5\0\f\0\0166\0\0\0'\2\1\0B\0\2\0029\1\2\0005\2\4\0005\3\5\0=\3\6\2=\2\3\0019\1\a\0004\2\3\0005\3\t\0003\4\n\0=\4\v\3>\3\1\2=\2\b\1K\0\1\0\fprogram\0\1\0\3\tname\24launch - netcoredbg\ttype\15netcoredbg\frequest\vlaunch\acs\19configurations\targs\1\2\0\0\25--interpreter=vscode\1\0\2\ttype\15executable\fcommand*/path/to/dotnet/netcoredbg/netcoredbg\15netcoredbg\radapters\bdap\frequire\0", "config", "nvim-dap")
+time([[Config for nvim-dap]], false)
 -- Config for: octo.nvim
 time([[Config for octo.nvim]], true)
 try_loadstring("\27LJ\2\n2\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\tocto\frequire\0", "config", "octo.nvim")
@@ -345,18 +358,10 @@ time([[Config for octo.nvim]], false)
 time([[Config for telescope-fzf-native.nvim]], true)
 try_loadstring("\27LJ\2\nH\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0'\2\3\0B\0\2\1K\0\1\0\bfzf\19load_extension\14telescope\frequire\0", "config", "telescope-fzf-native.nvim")
 time([[Config for telescope-fzf-native.nvim]], false)
--- Config for: nvim-treesitter
-time([[Config for nvim-treesitter]], true)
-try_loadstring("\27LJ\2\n´\1\0\0\5\0\t\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0004\4\0\0=\4\5\3=\3\6\0025\3\a\0=\3\b\2B\0\2\1K\0\1\0\16indentation\1\0\1\venable\2\14highlight\fdisable\1\0\1\venable\2\1\0\1\21ensure_installed\15maintained\nsetup\28nvim-treesitter.configs\frequire\0", "config", "nvim-treesitter")
-time([[Config for nvim-treesitter]], false)
--- Config for: which-key.nvim
-time([[Config for which-key.nvim]], true)
-try_loadstring("\27LJ\2\n;\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\14which-key\frequire\0", "config", "which-key.nvim")
-time([[Config for which-key.nvim]], false)
--- Config for: telescope-file-browser.nvim
-time([[Config for telescope-file-browser.nvim]], true)
-try_loadstring("\27LJ\2\nQ\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0'\2\3\0B\0\2\1K\0\1\0\17file_browser\19load_extension\14telescope\frequire\0", "config", "telescope-file-browser.nvim")
-time([[Config for telescope-file-browser.nvim]], false)
+-- Config for: trouble.nvim
+time([[Config for trouble.nvim]], true)
+try_loadstring("\27LJ\2\n9\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\ftrouble\frequire\0", "config", "trouble.nvim")
+time([[Config for trouble.nvim]], false)
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Event lazy-loads
