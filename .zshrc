@@ -26,6 +26,8 @@ fi
 
 ZSH_THEME="spaceship"
 
+SPACESHIP_DOCKER_SHOW=false
+
 # Plugins
 if [ ! -d "$ZSH_CUSTOM/plugins/fast-syntax-highlighting" ]; then
   echo "Fast Syntax Highlighting not installed"
@@ -52,6 +54,8 @@ plugins=(
   rust
   pip
   yarn
+  docker
+  docker-compose
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -86,13 +90,20 @@ if [ -x "$(command -v ruby)" ]; then
 fi
 
 # Add Poetry
-if [ -d "$HOME/.poetry/bin" ]; then
-  export PATH="$HOME/.poetry/bin:$PATH"
-fi
+# if [ -d "$HOME/.poetry/bin" ]; then
+#   export PATH="$HOME/.poetry/bin:$PATH"
+# fi
 
 # Add arkade
 if [ -d "$HOME/.arkade/bin" ]; then
   export PATH=$PATH:$HOME/.arkade/bin/
+fi
+
+# Add pyenv
+if [ -d "$HOME/.pyenv" ]; then
+  export PYENV_ROOT="$HOME/.pyenv"
+  command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+  eval "$(pyenv init -)"
 fi
 
 # dotfiles 
@@ -132,6 +143,77 @@ function proxy_off() {
 
 # fnm
 eval "$(fnm env)"
+
+view_pr() {
+  pr=$(gh pr list | fzf --preview 'gh pr view {1}' | awk '{print $1}')
+  branches=$(gh pr view $pr --json baseRefName,headRefName --jq '"\(.headRefName)..\(.baseRefName)"')
+
+  preview="git diff $branches --color=always -w -- {-1}"
+  gh pr view $pr --json files --jq '.files[].path' | fzf -m --ansi --preview $preview
+  echo $pr
+}
+
+review_prs() {
+  login=$(gh api graphql -f query='query { viewer { login } }' --jq '.data.viewer.login')
+
+  if [ -z "$login" ]; then
+    echo 'Could not get GitHub username'
+    return 1
+  fi
+
+  requests=$(gh api graphql -F owner='{owner}' -F name='{repo}' -f query='query($owner: String!, $name: String!) {
+    repository(owner: $owner, name: $name) {
+      pullRequests(first: 100, states: OPEN) {
+        edges {
+          node {
+            ... on PullRequest {
+              number
+              title
+              headRefName
+              reviewRequests(first: 100) {
+                nodes {
+                  requestedReviewer {
+                    ... on User {
+                      login
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+        pageInfo {
+          endCursor
+          hasNextPage
+        }
+      }
+    }
+  }' --jq ".data.repository.pullRequests.edges[] | select(.node.reviewRequests.nodes[].requestedReviewer.login | contains(\"$login\")) | \"#\(.node.number)|\(.node.title)|\(.node.headRefName)\"" | awk -F'|' '{printf "\033[32m%s\033[0m|\033[97;1m%s\033[0m|\033[36m%s\033[0m\n", $1, $2, $3}' | column -t -s '|')
+
+  if [ -z "$requests" ] ; then
+    echo 'No PRs available to review'
+    return 0
+  fi
+
+  pr=$(echo $requests | fzf --ansi --preview 'GH_FORCE_TTY=$FZF_PREVIEW_COLUMNS gh pr view {1}' | awk '{print $1}')
+
+  if [ -z "$pr" ]; then
+    echo 'No PR selected'
+    return 0
+  fi
+
+  branches=$(gh pr view $pr --json baseRefName,headRefName --jq '"origin/\(.baseRefName)..origin/\(.headRefName)"')
+
+  if [ -z "$branches" ] ; then
+    echo "Failed to pull branches for PR $pr"
+    return 0
+  fi
+
+  preview="git diff $branches --color=always -w -- {-1}"
+  gh pr view $pr --json files --jq '.files[].path' | fzf --ansi --preview $preview
+
+  echo $pr
+}
 
 # Show system info with Neofetch
 if [ -x "$(command -v neofetch)" ]; then
