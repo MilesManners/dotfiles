@@ -275,6 +275,22 @@ function M.setup()
 
     use { 'chrisbra/Colorizer' }
 
+    -- Rendering for noice
+    use { 'MunifTanjim/nui.nvim' }
+
+    use {
+      'folke/noice.nvim',
+      event = 'VimEnter',
+      config = function()
+        require('noice').setup()
+        require('telescope').load_extension('noice')
+      end,
+      requires = {
+        'MunifTanjim/nui.nvim',
+        'rcarriga/nvim-notify'
+      }
+    }
+
     if packer_bootstrap then
       print 'Installing plugins. Restart required after installation!'
       require('packer').sync()

@@ -62,4 +62,7 @@ utils.create_augroup('syntax_associations', {
 g.lcolor_bg = "#4B0082,#0a4c4b,#671a52,#4c141a,#093c26,#000f40,#4f004f,#293652"
 
 -- coffeescript
-g.coffee_compiler = 'npx coffee'
+g.coffee_compiler = '$(npm bin)/coffee'
+
+-- noice/sleuth interaction fix
+g.sleuth_noice_heuristics = 0
