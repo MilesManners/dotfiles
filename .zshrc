@@ -232,8 +232,10 @@ review_prs() {
 # Initialize completion
 autoload -U compinit && compinit
 
-# Show system info with Neofetch
-if [ -x "$(command -v neofetch)" ]; then
+# Show system info with fastfetch or alternatives
+if [ -x "$(command -v fastfetch)" ]; then
+  fastfetch
+elif [ -x "$(command -v neofetch)" ]; then
   neofetch
 elif [ -x "$(command -v screenfetch)" ]; then
   screenfetch
