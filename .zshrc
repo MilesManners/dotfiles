@@ -51,6 +51,7 @@ plugins=(
   git
   F-Sy-H
   zsh-autosuggestions
+  zsh-completions
   rust
   pip
   yarn
@@ -214,6 +215,9 @@ review_prs() {
 
   echo $pr
 }
+
+# Initialize completion
+autoload -U compinit && compinit
 
 # Show system info with Neofetch
 if [ -x "$(command -v neofetch)" ]; then
