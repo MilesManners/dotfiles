@@ -120,7 +120,15 @@ if [ -d "$HOME/.pyenv" ]; then
   eval "$(pyenv virtualenv-init -)"
 fi
 
-# dotfiles 
+if [ -x "$(command -v lsd)" ]; then
+  alias l='lsd -lah'
+  alias la='lsd -lAh'
+  alias ll='lsd -lh'
+  alias ls='lsd'
+  alias lsa='lsd -lah'
+fi
+
+# dotfiles
 alias dotfiles='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 compdef dotfiles='git'
 
