@@ -11,6 +11,10 @@
 
 [color]
   ui = auto
+  branch = auto
+  diff = auto
+  interactive = auto
+  status = auto
 
 [advice]
   statusHints = false
