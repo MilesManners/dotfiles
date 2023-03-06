@@ -86,8 +86,13 @@ if [ -d "$HOME/perl5" ]; then
 fi
 
 # Add ruby gems
-if [ -x "$(command -v ruby)" ]; then
-  PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin"
+# if [ -x "$(command -v ruby)" ]; then
+#   PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin"
+# fi
+
+# Add ruby gems
+if [ -x "$(command -v rbenv)" ]; then
+  eval "$(rbenv init - zsh)"
 fi
 
 # Add Poetry
