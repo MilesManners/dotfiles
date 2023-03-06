@@ -62,6 +62,13 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 # Path building
+if [ -d "/mnt/c/" ]; then
+  export PATH="$HOME/mnt/c/Users/miles/AppData/Local/Microsoft/WindowsApps:$PATH"
+  export PATH="$HOME/mnt/c/Program Files/Docker/Docker/resources/bin:$PATH"
+  export PATH="$HOME/mnt/c/Program Files/ProgramData/DockerDesktop/version-bin:$PATH"
+  export PATH="$HOME/mnt/c/WINDOWS:$PATH"
+fi
+
 # Add user bin
 if [ -d "$HOME/bin" ]; then
   export PATH="$HOME/bin:$PATH"
