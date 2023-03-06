@@ -29,11 +29,11 @@ ZSH_THEME="spaceship"
 SPACESHIP_DOCKER_SHOW=false
 
 # Plugins
-if [ ! -d "$ZSH_CUSTOM/plugins/fast-syntax-highlighting" ]; then
+if [ ! -d "$ZSH_CUSTOM/plugins/F-Sy-H" ]; then
   echo "Fast Syntax Highlighting not installed"
   echo "----- Downloading Fast Syntax Highlighting -----"
 
-  git clone https://github.com/zdharma/fast-syntax-highlighting $ZSH_CUSTOM/plugins/fast-syntax-highlighting
+  git clone https://github.com/z-shell/F-Sy-H $ZSH_CUSTOM/plugins/F-Sy-H
 
   echo "*=====* Completed *=====*"
 fi
@@ -49,7 +49,7 @@ fi
 
 plugins=(
   git
-  fast-syntax-highlighting
+  F-Sy-H
   zsh-autosuggestions
   rust
   pip
