@@ -38,6 +38,9 @@ function M.setup()
     -- packer manages itself
     use { 'wbthomason/packer.nvim', opt = true }
 
+    -- session saving
+    use { 'tpope/vim-obsession' }
+
     -- colorscheme
     use { 'folke/tokyonight.nvim' }
 
