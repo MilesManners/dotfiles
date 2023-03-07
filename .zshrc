@@ -47,6 +47,15 @@ if [ ! -d "$ZSH_CUSTOM/plugins/zsh-autosuggestions" ]; then
   echo "*=====* Completed *=====*"
 fi
 
+if [ ! -d "$ZSH_CUSTOM/plugins/zsh-completions" ]; then
+  echo "Zsh Completions not installed"
+  echo "----- Downloading Completions -----"
+
+  git clone https://github.com/zsh-users/zsh-completions $ZSH_CUSTOM/plugins/zsh-completions
+
+  echo "*=====* Completed *=====*"
+fi
+
 plugins=(
   git
   F-Sy-H
