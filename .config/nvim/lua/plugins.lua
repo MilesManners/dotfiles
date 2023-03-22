@@ -239,7 +239,10 @@ function M.setup()
       end
     }
 
-    use {'kosayoda/nvim-lightbulb'}
+    use {
+      'kosayoda/nvim-lightbulb',
+      config = function() require'nvim-lightbulb'.setup {autocmd = {enabled = true}} end
+    }
 
     use {
       'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'},
