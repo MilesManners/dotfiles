@@ -138,6 +138,11 @@ if [ -x "$(command -v lsd)" ]; then
   alias lsa='lsd -lah'
 fi
 
+# fnm
+if [ -x "$(command -v fnm)" ]; then
+  eval "$(fnm env)"
+fi
+
 # dotfiles
 alias dotfiles='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 compdef dotfiles='git'
@@ -172,9 +177,6 @@ function proxy_off() {
           NO_PROXY HTTP_PROXY HTTPS_PROXY FTP_PROXY RSYNC_PROXY
     echo -e "Proxy environment variable removed."
 }
-
-# fnm
-eval "$(fnm env)"
 
 view_pr() {
   pr=$(gh pr list | fzf --preview 'gh pr view {1}' | awk '{print $1}')
