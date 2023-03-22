@@ -216,7 +216,12 @@ function M.setup()
     use {'tpope/vim-commentary'}
     use {'tpope/vim-fugitive'}
     use {'tpope/vim-rhubarb'}
-    use {'tpope/vim-unimpaired'}
+    -- use {'tpope/vim-unimpaired'}
+
+    use {
+      'tummetott/unimpaired.nvim',
+      config = function() require'unimpaired'.setup() end
+    }
 
     use {'powerman/vim-plugin-AnsiEsc'}
 
