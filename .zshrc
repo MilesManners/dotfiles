@@ -131,9 +131,9 @@ if [ -d "$HOME/.pyenv" ]; then
 fi
 
 if [ -x "$(command -v lsd)" ]; then
-  alias l='lsd -lah'
-  alias la='lsd -lAh'
-  alias ll='lsd -lh'
+  alias l='lsd -A'
+  alias la='lsd -lh'
+  alias ll='lsd -lAh'
   alias ls='lsd'
   alias lsa='lsd -lah'
 fi
