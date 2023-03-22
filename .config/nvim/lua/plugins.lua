@@ -139,24 +139,40 @@ function M.setup()
 
     -- easier LSP config
     use {
-      'williamboman/nvim-lsp-installer', requires = 'neovim/nvim-lspconfig',
+      'williamboman/mason.nvim',
+      requires = {
+        'williamboman/mason-lspconfig.nvim',
+        'neovim/nvim-lspconfig',
+        'jayp0521/mason-nvim-dap.nvim',
+        'jay-babu/mason-null-ls.nvim',
+        { 'ms-jpq/coq_nvim', branch = 'coq' }
+      },
       config = function()
-        local lsp_installer = require("nvim-lsp-installer")
+        require'mason'.setup()
+        require'mason-lspconfig'.setup()
+        require'mason-nvim-dap'.setup { automatic_setup = true }
+        require'mason-null-ls'.setup { automatic_setup = true }
 
-        -- Register a handler that will be called for all installed servers.
-        -- Alternatively, you may also register handlers on specific server instances instead (see example below).
-        lsp_installer.on_server_ready(function(server)
-            local opts = {}
+        local lsp = require 'lspconfig'
+        local coq = require 'coq'
 
-            -- (optional) Customize the options passed to the server
-            -- if server.name == "tsserver" then
-            --     opts.root_dir = function() ... end
-            -- end
+        require'mason-lspconfig'.setup_handlers {
+          function (server_name)
+            lsp[server_name].setup(coq.lsp_ensure_capabilities())
+          end,
 
-            -- This setup() function is exactly the same as lspconfig's setup function.
-            -- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-            server:setup(opts)
-        end)
+          lua_ls = function ()
+            lsp.lua_ls.setup(coq.lsp_ensure_capabilities {
+              settings = {
+                Lua = {
+                  diagnostics = {
+                    globals = { 'vim' }
+                  }
+                }
+              }
+            })
+          end
+        }
       end
     }
 
