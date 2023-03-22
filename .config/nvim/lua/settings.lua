@@ -58,6 +58,12 @@ utils.create_augroup('syntax_associations', {
   {'BufRead,BufNewFile', '.gitconfig.*', 'set ft=gitconfig'}
 })
 
+vim.api.nvim_create_autocmd('LspAttach', {
+  callback = function(args)
+    vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = args.buf })
+  end
+})
+
 -- vim-highlight
 g.lcolor_bg = "#4B0082,#0a4c4b,#671a52,#4c141a,#093c26,#000f40,#4f004f,#293652"
 
