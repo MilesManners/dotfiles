@@ -250,7 +250,7 @@ review_prs() {
   fi
 
   preview="git diff $branches --color=always -w -- {-1}"
-  gh pr view $pr --json files --jq '.files[].path' | fzf --ansi --preview $preview
+  gh pr view $pr --json files --jq '.files[].path' | fzf --ansi --preview $preview --bind ctrl-y:preview-up,ctrl-e:preview-down,ctrl-b:preview-page-up,ctrl-f:preview-page-down,ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down
 
   echo $pr
 }
