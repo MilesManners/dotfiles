@@ -43,9 +43,6 @@ vim.diagnostic.config({
 g.tokyonight_hide_inactive_statusline = false
 g.tokyonight_sidebars = { 'qf', 'vista_kind', 'terminal', 'packer', 'help', 'fugitive', 'gitcommit', 'trouble' }
 
--- COQ
-g.coq_settings = { auto_start = 'shut-up' }
-
 utils.create_augroup('nvim_yank', {
   {'TextYankPost', '*', 'silent! lua vim.highlight.on_yank()'}
 })

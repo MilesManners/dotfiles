@@ -91,7 +91,14 @@ function M.setup()
     }
 
     -- completion
-    use { 'ms-jpq/coq_nvim', branch = 'coq' } -- main one
+    use {
+      'ms-jpq/coq_nvim', branch = 'coq', -- main one
+      setup = function()
+        vim.g.coq_settings = {
+          auto_start = 'shut-up'
+        }
+      end
+    }
     use { 'ms-jpq/coq.artifacts', branch = 'artifacts' } -- 9000+ Snippets
     use { 'ms-jpq/coq.thirdparty', branch = '3p' }
 
