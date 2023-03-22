@@ -27,11 +27,12 @@ fi
 ZSH_THEME="spaceship"
 
 SPACESHIP_DOCKER_SHOW=false
+SPACESHIP_PROMPT_ASYNC=false
 
 # Plugins
 if [ ! -d "$ZSH_CUSTOM/plugins/F-Sy-H" ]; then
-  echo "Fast Syntax Highlighting not installed"
-  echo "----- Downloading Fast Syntax Highlighting -----"
+  echo "F-Sy-H not installed"
+  echo "----- Downloading F-Sy-H -----"
 
   git clone https://github.com/z-shell/F-Sy-H $ZSH_CUSTOM/plugins/F-Sy-H
 
