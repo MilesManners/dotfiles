@@ -296,7 +296,17 @@ function M.setup()
       'folke/noice.nvim',
       event = 'VimEnter',
       config = function()
-        require('noice').setup()
+        require('noice').setup({
+          popupmenu = { enabled = false },
+          lsp = {
+            -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
+            override = {
+              ['vim.lsp.util.convert_input_to_markdown_lines'] = true,
+              ['vim.lsp.util.stylize_markdown'] = true,
+              ['cmp.entry.get_documentation'] = true
+            }
+          }
+        })
         require('telescope').load_extension('noice')
       end,
       requires = {
