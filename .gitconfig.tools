@@ -1,5 +1,6 @@
 [merge]
   tool = nvim
+  conflictstyle = diff3
 [mergetool]
   prompt = false
 
