@@ -143,6 +143,12 @@ if [ -x "$(command -v fnm)" ]; then
   eval "$(fnm env)"
 fi
 
+# jenv
+if [ -x "$(command -v jenv)" ]; then
+  export PATH="$HOME/.jenv/bin:$PATH"
+  eval "$(jenv init -)"
+fi
+
 # dotfiles
 alias dotfiles='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 compdef dotfiles='git'
