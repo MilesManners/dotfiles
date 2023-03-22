@@ -64,6 +64,9 @@ function M.setup()
             },
             file_browser = {
               initial_mode = 'normal'
+            },
+            ['ui-select'] = {
+              require'telescope.themes'.get_dropdown()
             }
           }
         }
@@ -74,6 +77,7 @@ function M.setup()
     use { 'nvim-telescope/telescope-github.nvim',       config = function() require'telescope'.load_extension('gh') end }
     use { 'nvim-telescope/telescope-media-files.nvim',  config = function() require'telescope'.load_extension('media_files') end }
     use { 'nvim-telescope/telescope-file-browser.nvim', config = function() require'telescope'.load_extension('file_browser') end }
+    use { 'nvim-telescope/telescope-ui-select.nvim',     config = function() require'telescope'.load_extension('ui-select') end }
 
     use {
       'pwntester/octo.nvim', requires = {'nvim-telescope/telescope.nvim'},
