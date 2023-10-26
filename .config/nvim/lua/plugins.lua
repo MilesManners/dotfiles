@@ -354,11 +354,7 @@ function M.setup()
     use {
       'lukas-reineke/indent-blankline.nvim',
       config = function()
-        require('indent_blankline').setup {
-          show_current_context = true,
-          show_current_context_start = true,
-          show_current_context_start_on_current_line = true
-        }
+        require('ibl').setup()
       end
     }
 
@@ -389,6 +385,8 @@ function M.setup()
         'rcarriga/nvim-notify'
       }
     }
+
+    use { 'voldikss/vim-floaterm' }
 
     -- Lua
     use {

@@ -57,8 +57,18 @@ if [ ! -d "$ZSH_CUSTOM/plugins/zsh-completions" ]; then
   echo "*=====* Completed *=====*"
 fi
 
+if [ ! -d "$ZSH_CUSTOM/plugins/autoupdate" ]; then
+  echo "autoupdate-zsh-plugin not installed"
+  echo "----- Downloading Completions -----"
+
+  git clone https://github.com/TamCore/autoupdate-oh-my-zsh-plugins $ZSH_CUSTOM/plugins/autoupdate
+
+  echo "*=====* Completed *=====*"
+fi
+
 plugins=(
   git
+  autoupdate
   F-Sy-H
   zsh-autosuggestions
   zsh-completions
@@ -68,6 +78,8 @@ plugins=(
   docker
   docker-compose
 )
+
+export UPDATE_ZSH_DAYS=1
 
 source $ZSH/oh-my-zsh.sh
 
@@ -139,6 +151,10 @@ if [ -x "$(command -v lsd)" ]; then
 fi
 
 # fnm
+if [ -d "$HOME/.local/share/fnm" ]; then
+  export PATH=$PATH:$HOME/.local/share/fnm
+fi
+
 if [ -x "$(command -v fnm)" ]; then
   eval "$(fnm env)"
 fi
